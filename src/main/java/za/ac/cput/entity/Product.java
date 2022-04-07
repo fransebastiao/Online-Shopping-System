@@ -7,10 +7,10 @@
 package za.ac.cput.entity;
 
 public class Product {
-    private int productID;
+    private String productID;
     private String productName;
     private String prodDescription;
-    private float prodPrice;
+    private String prodPrice;
 
     public Product() {
     }
@@ -22,9 +22,9 @@ public class Product {
         this.prodPrice = builder.prodPrice;
     }
 
-    public int getProductID() {return productID;}
+    public String getProductID() {return productID;}
 
-    public void setProductID(int productID) {this.productID = productID;}
+    public void setProductID(String productID) {this.productID = productID;}
 
     public String getProductName() {return productName;}
 
@@ -34,9 +34,9 @@ public class Product {
 
     public void setProdDescription(String prodDescription) {this.prodDescription = prodDescription;}
 
-    public float getProdPrice() {return prodPrice;}
+    public String getProdPrice() {return prodPrice;}
 
-    public void setProdPrice(float prodPrice) {this.prodPrice = prodPrice;}
+    public void setProdPrice(String prodPrice) {this.prodPrice = prodPrice;}
 
     @Override
     public String toString() {
@@ -49,12 +49,12 @@ public class Product {
     }
 
     public static class Builder {
-        private int productID;
+        private String productID;
         private String productName;
         private String prodDescription;
-        private float prodPrice;
+        private String prodPrice;
 
-        public Builder setProductID(int productID) {
+        public Builder setProductID(String productID) {
             this.productID = productID;
             return this;
         }
@@ -69,7 +69,7 @@ public class Product {
             return this;
         }
 
-        public Builder setProdPrice(float prodPrice) {
+        public Builder setProdPrice(String prodPrice) {
             this.prodPrice = prodPrice;
             return this;
         }

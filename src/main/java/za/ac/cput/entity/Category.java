@@ -7,7 +7,7 @@
 package za.ac.cput.entity;
 
 public class Category {
-    private int categoryId;
+    private String categoryId;
     private String categoryName;
     private String categoryDescription;
 
@@ -20,9 +20,9 @@ public class Category {
         this.categoryDescription = builder.categoryDescription;
     }
 
-    public int getCategoryId() {return categoryId;}
+    public String getCategoryId() {return categoryId;}
 
-    public void setCategoryId(int categoryId) {this.categoryId = categoryId;}
+    public void setCategoryId(String categoryId) {this.categoryId = categoryId;}
 
     public String getCategoryName() {return categoryName;}
 
@@ -42,11 +42,11 @@ public class Category {
     }
 
     public static class Builder {
-        private int categoryId;
+        private String categoryId;
         private String categoryName;
         private String categoryDescription;
 
-        public Builder setCategoryId(int categoryId) {
+        public Builder setCategoryId(String categoryId) {
             this.categoryId = categoryId;
             return this;
         }
