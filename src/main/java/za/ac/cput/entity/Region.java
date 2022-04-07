@@ -65,20 +65,24 @@ public class Region {
         private String streetName;
         private int zipCode;
 
-        public void setRegionId(int regionId) {
+        public Builder setRegionId(int regionId) {
             this.regionId = regionId;
+            return this;
         }
 
-        public void setStreetNumber(int streetNumber) {
+        public Builder setStreetNumber(int streetNumber) {
             this.streetNumber = streetNumber;
+            return this;
         }
 
-        public void setStreetName(String streetName) {
+        public Builder setStreetName(String streetName) {
             this.streetName = streetName;
+            return this;
         }
 
-        public void setZipCode(int zipCode) {
+        public Builder setZipCode(int zipCode) {
             this.zipCode = zipCode;
+            return this;
         }
 
         public Region.Builder copy(Region region){
