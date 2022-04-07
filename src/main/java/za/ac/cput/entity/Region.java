@@ -1,0 +1,96 @@
+package za.ac.cput.entity;
+
+import java.time.LocalDateTime;
+
+public class Region {
+    private int regionId;
+    private int streetNumber;
+    private String streetName;
+    private int zipCode;
+
+    private Region(){}
+
+    private Region (Region.Builder builder){
+        this.regionId = builder.regionId;
+        this.streetNumber = builder.streetNumber;
+        this.streetName = builder.streetName;
+        this.zipCode = builder.zipCode;
+    }
+
+    public int getRegionId() {
+        return regionId;
+    }
+
+    public int getStreetNumber() {
+        return streetNumber;
+    }
+
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public void setRegionId(int regionId) {
+        this.regionId = regionId;
+    }
+
+    public void setStreetNumber(int streetNumber) {
+        this.streetNumber = streetNumber;
+    }
+
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
+    }
+
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    @Override
+    public String toString() {
+        return "Region{" +
+                "regionId=" + regionId +
+                ", streetNumber=" + streetNumber +
+                ", streetName='" + streetName + '\'' +
+                ", zipCode=" + zipCode +
+                '}';
+    }
+
+    public static class Builder{
+        private int regionId;
+        private int streetNumber;
+        private String streetName;
+        private int zipCode;
+
+        public void setRegionId(int regionId) {
+            this.regionId = regionId;
+        }
+
+        public void setStreetNumber(int streetNumber) {
+            this.streetNumber = streetNumber;
+        }
+
+        public void setStreetName(String streetName) {
+            this.streetName = streetName;
+        }
+
+        public void setZipCode(int zipCode) {
+            this.zipCode = zipCode;
+        }
+
+        public Region.Builder copy(Region region){
+            this.regionId = region.regionId;
+            this.streetNumber = region.streetNumber;
+            this.streetName = region.streetName;
+            this.zipCode = region.zipCode;
+            return this;
+        }
+
+        public Region build(){
+            return new Region(this);
+        }
+    }
+}
