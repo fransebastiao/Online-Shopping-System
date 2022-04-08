@@ -1,7 +1,5 @@
 package za.ac.cput.entity;
 
-import org.jetbrains.annotations.Contract;
-
 public class Login {
     private String loginId;
     private String userId;
