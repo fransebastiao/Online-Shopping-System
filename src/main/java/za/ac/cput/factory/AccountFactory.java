@@ -1,6 +1,6 @@
 package za.ac.cput.factory;
 import za.ac.cput.entity.Account;
-import za.ac.cput.entity.Region;
+import za.ac.cput.util.GenericHelper;
 /*
  Online-Shopping-System
  Factory for the Account class
@@ -10,7 +10,11 @@ import za.ac.cput.entity.Region;
 
 public abstract class AccountFactory {
 
-    public static Account openAccount(String accountId, String openDate, String closeDate){
+    public static Account saveAccount(String openDate, String closeDate){
+        if(GenericHelper.isNullorEmpty(openDate) || GenericHelper.isNullorEmpty(closeDate))
+            return null;
+
+        String accountId = GenericHelper.generateId();
 
         return new Account.Builder().setAccountId(accountId)
                 .setOpenDate(openDate)
