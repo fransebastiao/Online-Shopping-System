@@ -10,5 +10,8 @@
         <module name="Online-Shopping-System" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="onlineShoppingCart" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
