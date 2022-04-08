@@ -5,7 +5,8 @@ import java.util.UUID;
 public class GenericHelper {
 
 
-    public static boolean isNullorEmpty(String s){
+    public static boolean isNullorEmpty(String s)
+    {
 
         return (s == null || s.isEmpty() || s.equalsIgnoreCase("null"));
     }
