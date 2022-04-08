@@ -3,7 +3,7 @@ package za.ac.cput.entity;
 import java.time.LocalDateTime;
 
 public class Region {
-    private int regionId;
+    private String regionId;
     private int streetNumber;
     private String streetName;
     private int zipCode;
@@ -17,13 +17,11 @@ public class Region {
         this.zipCode = builder.zipCode;
     }
 
-    public int getRegionId() {
+    public String getRegionId() {
         return regionId;
     }
 
-    public int getStreetNumber() {
-        return streetNumber;
-    }
+    public int getStreetNumber() { return streetNumber; }
 
     public String getStreetName() {
         return streetName;
@@ -33,7 +31,7 @@ public class Region {
         return zipCode;
     }
 
-    public void setRegionId(int regionId) {
+    public void setRegionId(String regionId) {
         this.regionId = regionId;
     }
 
@@ -60,12 +58,12 @@ public class Region {
     }
 
     public static class Builder{
-        private int regionId;
+        private String regionId;
         private int streetNumber;
         private String streetName;
         private int zipCode;
 
-        public Builder setRegionId(int regionId) {
+        public Builder setRegionId(String regionId) {
             this.regionId = regionId;
             return this;
         }

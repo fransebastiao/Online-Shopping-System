@@ -4,9 +4,9 @@ import java.time.*;
 
 public class Account {
 
-    private int accountId;
-    private LocalDateTime openDate;
-    private LocalDateTime closeDate;
+    private String accountId;
+    private String openDate;
+    private String closeDate;
 
     private Account(){}
 
@@ -16,27 +16,27 @@ public class Account {
         this.closeDate = builder.closeDate;
     }
 
-    public int getAccountId() {
+    public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(int accountId) {
+    public void setAccountId(String accountId) {
         this.accountId = accountId;
     }
 
-    public LocalDateTime getOpenDate() {
+    public String getOpenDate() {
         return openDate;
     }
 
-    public void setOpenDate(LocalDateTime openDate) {
+    public void setOpenDate(String openDate) {
         this.openDate = openDate;
     }
 
-    public LocalDateTime getCloseDate() {
+    public String getCloseDate() {
         return closeDate;
     }
 
-    public void setCloseDate(LocalDateTime closeDate) {
+    public void setCloseDate(String closeDate) {
         this.closeDate = closeDate;
     }
 
@@ -50,21 +50,21 @@ public class Account {
     }
 
     public static class Builder{
-        private int accountId;
-        private LocalDateTime openDate;
-        private LocalDateTime closeDate;
+        private String accountId;
+        private String openDate;
+        private String closeDate;
 
-        public Builder setAccountId(int accountId) {
+        public Builder setAccountId(String accountId) {
             this.accountId = accountId;
             return this;
         }
 
-        public Builder setOpenDate(LocalDateTime openDate) {
+        public Builder setOpenDate(String openDate) {
             this.openDate = openDate;
             return this;
         }
 
-        public Builder setCloseDate(LocalDateTime closeDate) {
+        public Builder setCloseDate(String closeDate) {
             this.closeDate = closeDate;
             return this;
         }
