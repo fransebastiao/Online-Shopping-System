@@ -7,6 +7,7 @@ package za.ac.cput.factory;
 */
 
 import za.ac.cput.entity.OrderDetails;
+import za.ac.cput.util.GenericHelper;
 
 
 public class OrderDetailsFactory
