@@ -15,11 +15,9 @@ public class GenericHelper {
 
     public static String generateId(){
 
-
-        return UUID.randomUUID().toString();    }
+        return UUID.randomUUID().toString();
 
     }
-
     // Simple Regular Expression for email validation
     // The absence of @ symbol fails validation
     public static boolean emailMatches(String emailAddress, String regexPattern) {
