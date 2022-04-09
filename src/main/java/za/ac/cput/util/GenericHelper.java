@@ -9,15 +9,15 @@ import java.util.regex.Pattern;
 
 public class GenericHelper {
 
-
     public static boolean isNullorEmpty(String s){
 
-        return (s == null || s.isEmpty() || s.equalsIgnoreCase("null"));
-    }
+        return (s == null || s.isEmpty() || s.equalsIgnoreCase("null"));    }
 
     public static String generateId(){
 
-        return UUID.randomUUID().toString();
+
+        return UUID.randomUUID().toString();    }
+
     }
 
     // Simple Regular Expression for email validation
@@ -27,5 +27,6 @@ public class GenericHelper {
                 .matcher(emailAddress)
                 .matches();
     }
+
 }
 
