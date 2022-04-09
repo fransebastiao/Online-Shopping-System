@@ -94,10 +94,11 @@ public class Payment {
             this.paymentTotal = paymentTotal;
             return this;
         }
-        public Builder paymentDetails(String paymentDetails){
+        public Builder setPaymentDetails(String paymentDetails){
             this.paymentDetails = paymentDetails;
             return this;
         }
+
 
         public Builder copy(Payment payment){
             this.paymentId = payment.paymentId;
