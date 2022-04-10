@@ -11,7 +11,7 @@ import za.ac.cput.util.GenericHelper;
 public class RegionFactory {
     public static Region saveRegion(int streetNumber, String streetName, int zipCode){
         if(GenericHelper.isNullorEmpty(String.valueOf(streetNumber)) || GenericHelper.isNullorEmpty(streetName)
-                || GenericHelper.isNullorEmpty(String.valueOf(zipCode)))
+        || GenericHelper.isNullorEmpty(String.valueOf(zipCode)))
             return null;
 
         String regionId = GenericHelper.generateId();
