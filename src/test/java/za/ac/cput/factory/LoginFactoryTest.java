@@ -11,7 +11,11 @@ class LoginFactoryTest {
     public void test(){
 
         Login login = LoginFactory.createLogin("Lihle.Langa", "Lihle", "217181147@mycput.ac.za", "LihleLanga20");
+
+        assertNotNull(login);
+
     }
+
 
 
 }
