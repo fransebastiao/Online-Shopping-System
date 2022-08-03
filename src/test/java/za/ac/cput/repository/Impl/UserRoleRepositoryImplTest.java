@@ -7,7 +7,7 @@ Date: O4.04.2022
  */
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.UserRole;
+import za.ac.cput.domain.UserRole;
 import za.ac.cput.factory.UserRoleFactory;
 import za.ac.cput.repository.UserRoleRepository;
 import za.ac.cput.util.GenericHelper;

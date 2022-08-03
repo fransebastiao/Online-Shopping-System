@@ -6,7 +6,7 @@
 
 package za.ac.cput.repository;
 
-import za.ac.cput.entity.Category;
+import za.ac.cput.domain.Category;
 import java.util.Set;
 
 public interface ICategoryRepository extends IRepository<Category, String>{

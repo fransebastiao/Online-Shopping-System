@@ -6,7 +6,7 @@ Author: Siphelele Nyathi 218334028
 Date: O4.04.2022
  */
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.UserRole;
+import za.ac.cput.domain.UserRole;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserRoleFactoryTest {

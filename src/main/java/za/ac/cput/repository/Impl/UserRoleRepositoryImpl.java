@@ -6,9 +6,7 @@ Author: Siphelele Nyathi 218334028
 Date: O4.04.2022
  */
 
-import za.ac.cput.entity.User;
-import za.ac.cput.entity.UserRole;
-import za.ac.cput.repository.UserRepository;
+import za.ac.cput.domain.UserRole;
 import za.ac.cput.repository.UserRoleRepository;
 
 import java.io.FileNotFoundException;

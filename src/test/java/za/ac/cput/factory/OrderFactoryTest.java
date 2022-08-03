@@ -6,7 +6,7 @@ package za.ac.cput.factory;
  Date: 4 April 2022
 */
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.Order;
+import za.ac.cput.domain.Order;
 
 import static org.junit.jupiter.api.Assertions.*;
 

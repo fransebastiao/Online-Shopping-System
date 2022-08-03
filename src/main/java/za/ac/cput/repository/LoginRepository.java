@@ -1,6 +1,6 @@
 package za.ac.cput.repository;
 
-import za.ac.cput.entity.Login;
+import za.ac.cput.domain.Login;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,4 @@
-package za.ac.cput.entity;
-
-import java.time.LocalDateTime;
+package za.ac.cput.domain;
 
 public class Region {
     private String regionId;
