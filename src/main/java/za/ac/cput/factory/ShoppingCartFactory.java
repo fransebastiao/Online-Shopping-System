@@ -7,7 +7,7 @@
  */
 package za.ac.cput.factory;
 
-import za.ac.cput.entity.ShoppingCart;
+import za.ac.cput.domain.ShoppingCart;
 import za.ac.cput.util.GenericHelper;
 
 

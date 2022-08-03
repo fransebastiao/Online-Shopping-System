@@ -7,7 +7,7 @@
  */
 package za.ac.cput.factory;
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.Shipment;
+import za.ac.cput.domain.Shipment;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 

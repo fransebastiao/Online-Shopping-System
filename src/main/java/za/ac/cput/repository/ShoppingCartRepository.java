@@ -1,7 +1,7 @@
 package za.ac.cput.repository;
 
 import java.util.HashSet;
-import za.ac.cput.entity.ShoppingCart;
+import za.ac.cput.domain.ShoppingCart;
 import java.util.Set;
 
 public class ShoppingCartRepository implements IShoppingCartRepository

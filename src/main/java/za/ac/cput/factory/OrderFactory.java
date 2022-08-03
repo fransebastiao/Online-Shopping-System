@@ -6,7 +6,7 @@ package za.ac.cput.factory;
  Date: 4 April 2022
 */
 
-import za.ac.cput.entity.Order;
+import za.ac.cput.domain.Order;
 import za.ac.cput.util.GenericHelper;
 
 

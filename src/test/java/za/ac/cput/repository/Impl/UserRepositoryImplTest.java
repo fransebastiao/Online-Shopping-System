@@ -6,7 +6,7 @@ Author: Siphelele Nyathi 218334028
 Date: O4.04.2022
  */
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.User;
+import za.ac.cput.domain.User;
 import za.ac.cput.factory.UserFactory;
 import za.ac.cput.repository.UserRepository;
 import za.ac.cput.util.GenericHelper;

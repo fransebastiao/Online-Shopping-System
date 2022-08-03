@@ -1,6 +1,4 @@
-package za.ac.cput.entity;
-
-import java.time.*;
+package za.ac.cput.domain;
 
 public class Account {
 

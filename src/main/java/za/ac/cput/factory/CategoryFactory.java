@@ -6,7 +6,7 @@
 
 package za.ac.cput.factory;
 
-import za.ac.cput.entity.Category;
+import za.ac.cput.domain.Category;
 import za.ac.cput.util.GenericHelper;
 
 public class CategoryFactory {

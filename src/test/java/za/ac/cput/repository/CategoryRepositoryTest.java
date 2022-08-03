@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.entity.Category;
+import za.ac.cput.domain.Category;
 import za.ac.cput.factory.CategoryFactory;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
