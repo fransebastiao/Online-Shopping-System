@@ -8,7 +8,7 @@ package za.ac.cput.repository.Impl;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.entity.OrderDetails;
+import za.ac.cput.domain.OrderDetails;
 import za.ac.cput.factory.OrderDetailsFactory;
 
 import static org.junit.jupiter.api.Assertions.*;

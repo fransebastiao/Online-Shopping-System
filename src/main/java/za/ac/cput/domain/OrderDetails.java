@@ -1,4 +1,4 @@
-package za.ac.cput.entity;
+package za.ac.cput.domain;
 /*
  Online-Shopping-System
  Entity for the OrderDetails

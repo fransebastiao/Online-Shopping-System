@@ -1,10 +1,8 @@
 package za.ac.cput.repository;
 
 import java.util.HashSet;
-import za.ac.cput.entity.Shipment;
+import za.ac.cput.domain.Shipment;
 import java.util.Set;
-
-import java.util.HashSet;
 
 public class ShipmentRepository implements IShipmentRepository
 {

@@ -1,7 +1,7 @@
 package za.ac.cput.repository;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.Login;
+import za.ac.cput.domain.Login;
 import za.ac.cput.factory.LoginFactory;
 
 import static org.junit.jupiter.api.Assertions.*;

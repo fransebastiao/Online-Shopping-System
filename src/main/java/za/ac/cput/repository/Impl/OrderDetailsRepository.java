@@ -5,7 +5,7 @@ package za.ac.cput.repository.Impl;
         Author: Edvalter da Costa Jamba (220446571)
         Date: 10 April 2022
 */
-import za.ac.cput.entity.OrderDetails;
+import za.ac.cput.domain.OrderDetails;
 import za.ac.cput.repository.IRepository;
 
 import java.util.HashSet;

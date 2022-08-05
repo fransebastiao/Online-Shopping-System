@@ -4,7 +4,7 @@
  * Author: Sharfaa Sedick Anthony 220041571
  * */
 
-package za.ac.cput.entity;
+package za.ac.cput.domain;
 
 public class Category {
     private String categoryId;

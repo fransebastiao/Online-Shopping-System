@@ -5,7 +5,7 @@ Factory class for UserRole
 Author: Siphelele Nyathi 218334028
 Date: O4.04.2022
  */
-import za.ac.cput.entity.UserRole;
+import za.ac.cput.domain.UserRole;
 import za.ac.cput.util.GenericHelper;
 
 public class UserRoleFactory {

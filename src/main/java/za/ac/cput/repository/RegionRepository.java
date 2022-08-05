@@ -7,7 +7,7 @@ package za.ac.cput.repository;
  Date: 8 April 2022
 */
 
-import za.ac.cput.entity.Region;
+import za.ac.cput.domain.Region;
 
 import java.util.ArrayList;
 import java.util.List;
