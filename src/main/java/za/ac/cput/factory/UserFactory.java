@@ -5,7 +5,7 @@ Factory class for User
 Author: Siphelele Nyathi 218334028
 Date: O4.04.2022
  */
-import za.ac.cput.entity.User;
+import za.ac.cput.domain.User;
 import za.ac.cput.util.GenericHelper;
 
 public class UserFactory {

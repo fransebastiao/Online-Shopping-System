@@ -6,7 +6,7 @@ Author: Siphelele Nyathi 218334028
 Date: O4.04.2022
  */
 import org.junit.jupiter.api.*;
-import za.ac.cput.entity.User;
+import za.ac.cput.domain.User;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserFactoryTest {

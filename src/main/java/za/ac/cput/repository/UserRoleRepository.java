@@ -5,10 +5,11 @@ User Role Repository
 Author: Siphelele Nyathi 218334028
 Date: O4.04.2022
  */
-import za.ac.cput.entity.UserRole;
+import org.springframework.data.jpa.repository.JpaRepository;
+import za.ac.cput.domain.UserRole;
 import java.util.Set;
 
-public interface UserRoleRepository extends IRepository<UserRole, String> {
+public interface UserRoleRepository extends JpaRepository<UserRole, String> {
 
     Set<UserRole> getAll();
 }

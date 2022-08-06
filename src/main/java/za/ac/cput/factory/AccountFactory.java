@@ -1,5 +1,5 @@
 package za.ac.cput.factory;
-import za.ac.cput.entity.Account;
+import za.ac.cput.domain.Account;
 import za.ac.cput.util.GenericHelper;
 /*
  Online-Shopping-System

@@ -9,7 +9,7 @@
 
 package za.ac.cput.factory;
 
-import za.ac.cput.entity.Shipment;
+import za.ac.cput.domain.Shipment;
 import za.ac.cput.util.GenericHelper;
 
 

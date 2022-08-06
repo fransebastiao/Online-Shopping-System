@@ -1,13 +1,4 @@
-package za.ac.cput.entity;
-
-/*
- Online-Shopping-System
- Entity for the Region class
- Author: Franciel Danilo de Carvalho Sebastiao (219466912)
- Date: 6 April 2022
-*/
-
-import java.time.LocalDateTime;
+package za.ac.cput.domain;
 
 public class Region {
     private String regionId;
