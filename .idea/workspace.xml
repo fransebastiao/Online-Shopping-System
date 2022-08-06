@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7078e445-0467-4d72-b14a-9e0b247444ab" name="Changes" comment="Account and Region factory classes created with TDD" />
+    <list default="true" id="7078e445-0467-4d72-b14a-9e0b247444ab" name="Changes" comment="Security dependency added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/onlineShoppingCart.iml" beforeDir="false" afterPath="$PROJECT_DIR$/onlineShoppingCart.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,10 +32,22 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="219466912" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -67,34 +82,49 @@
       <recent name="za.ac.cput.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RegionFactoryTest.test">
-    <configuration name="AccountFactoryTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.RegionRepositoryTest">
+    <configuration name="AccountRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="onlineShoppingCart" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="za.ac.cput.factory.*" />
+          <option name="PATTERN" value="za.ac.cput.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="za.ac.cput.factory" />
-      <option name="MAIN_CLASS_NAME" value="za.ac.cput.factory.AccountFactoryTest" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="PACKAGE_NAME" value="za.ac.cput.repository" />
+      <option name="MAIN_CLASS_NAME" value="za.ac.cput.repository.AccountRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountRepositoryTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="onlineShoppingCart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="za.ac.cput.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="za.ac.cput.repository" />
+      <option name="MAIN_CLASS_NAME" value="za.ac.cput.repository.AccountRepositoryTest" />
+      <option name="METHOD_NAME" value="create" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountTest.accountTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountRepositoryTest.e_delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="onlineShoppingCart" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="za.ac.cput.entity.*" />
+          <option name="PATTERN" value="za.ac.cput.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="za.ac.cput.entity" />
-      <option name="MAIN_CLASS_NAME" value="za.ac.cput.entity.AccountTest" />
-      <option name="METHOD_NAME" value="accountTest" />
+      <option name="PACKAGE_NAME" value="za.ac.cput.repository" />
+      <option name="MAIN_CLASS_NAME" value="za.ac.cput.repository.AccountRepositoryTest" />
+      <option name="METHOD_NAME" value="e_delete" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -116,18 +146,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegionTest.regionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegionRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="onlineShoppingCart" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="za.ac.cput.entity.*" />
+          <option name="PATTERN" value="za.ac.cput.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="za.ac.cput.entity" />
-      <option name="MAIN_CLASS_NAME" value="za.ac.cput.entity.RegionTest" />
-      <option name="METHOD_NAME" value="regionTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="za.ac.cput.repository" />
+      <option name="MAIN_CLASS_NAME" value="za.ac.cput.repository.RegionRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -145,11 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegionRepositoryTest" />
+        <item itemvalue="JUnit.AccountRepositoryTest.e_delete" />
+        <item itemvalue="JUnit.AccountRepositoryTest.create" />
+        <item itemvalue="JUnit.AccountRepositoryTest" />
         <item itemvalue="JUnit.RegionFactoryTest.test" />
-        <item itemvalue="JUnit.AccountFactoryTest.test" />
-        <item itemvalue="JUnit.RegionTest.regionTest" />
-        <item itemvalue="JUnit.AccountTest.accountTest" />
-        <item itemvalue="JUnit.RegionTest.regionTest" />
       </list>
     </recent_temporary>
   </component>
