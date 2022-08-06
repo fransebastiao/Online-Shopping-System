@@ -1,82 +1,67 @@
-package za.ac.cput.domain;
 /*
  Online-Shopping-System
  Entity for the Order
  Author: Edvalter da Costa Jamba (220446571)
  Date: 4 April 2022
+ Changes Date:3 August 2022
 */
 
-public class Order
+package za.ac.cput.domain;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Entity
+public class Order implements Serializable
 {
 
+    @NotNull
+    @Id
     private String orderID;
-    private String orderDate;
-    private String orderStatus;
-    private String customerName;
-    private String deliveryAddress;
-    private int contactNumber;
 
-    private Order(){}
+    @NotNull private String orderDate;
+    @NotNull private String orderStatus;
+    @NotNull private String customerName;
+    @NotNull private String deliveryAddress;
+    @NotNull private int contactNumber;
 
-    //my builder constractor
-    public Order(Builder builder)
+    //
+    protected Order(){ }
+    //
+    private Order(Builder builder)
     {
         this.orderID = builder.orderID;
         this.orderDate = builder.orderDate;
         this.orderStatus = builder.orderStatus;
-        this.customerName = builder.customerName;
-        this.deliveryAddress = builder.deliveryAddress;
-        this.contactNumber = Integer.parseInt(builder. contactNumber);
+        this.customerName=builder.customerName;
+        this.deliveryAddress=builder.deliveryAddress;
+        this.contactNumber= Integer.parseInt(String.valueOf(builder.contactNumber));
     }
-
-
-    //Setter and Getters
+    //Getters
     public String getOrderID() {
         return orderID;
-    }
-
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
     }
 
     public String getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(String orderDate) {
-        this.orderDate = orderDate;
-    }
-
     public String getOrderStatus() {
         return orderStatus;
-    }
-
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
     }
 
     public String getCustomerName() {
         return customerName;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
     public String getDeliveryAddress() {
         return deliveryAddress;
     }
 
-    public void setDeliveryAddress(String deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-    }
-
     public int getContactNumber() {
         return contactNumber;
-    }
-
-    public void setContactNumber(int contactNumber) {
-        this.contactNumber = contactNumber;
     }
 
     @Override
@@ -87,18 +72,31 @@ public class Order
                 ", orderStatus='" + orderStatus + '\'' +
                 ", customerName='" + customerName + '\'' +
                 ", deliveryAddress='" + deliveryAddress + '\'' +
-                ", contactNumber='" + contactNumber + '\'' +
+                ", contactNumber=" + contactNumber +
                 '}';
     }
-    //my builder pattern Class
-    public static class Builder
-    {
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return contactNumber == order.contactNumber && Objects.equals(orderID, order.orderID) && Objects.equals(orderDate, order.orderDate) && Objects.equals(orderStatus, order.orderStatus) && Objects.equals(customerName, order.customerName) && Objects.equals(deliveryAddress, order.deliveryAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderID, orderDate, orderStatus, customerName, deliveryAddress, contactNumber);
+    }
+
+    public static class Builder{
         private String orderID;
+
         private String orderDate;
         private String orderStatus;
         private String customerName;
         private String deliveryAddress;
-        private String contactNumber;
+        private int contactNumber;
 
         public Builder setOrderID(String orderID) {
             this.orderID = orderID;
@@ -127,32 +125,28 @@ public class Order
         }
 
         public Builder setContactNumber(String contactNumber) {
-            this.contactNumber = contactNumber;
+            this.contactNumber = Integer.parseInt(contactNumber);
             return this;
         }
-
-
-
-        //copy method//copy of employee object
-        public Builder copy(Order order)
+        //copy method//copy of Order object
+        public Order.Builder builder(Order order)
         {
             this.orderID = order.orderID;
             this.orderDate = order.orderDate;
             this.orderStatus = order.orderStatus;
-            this.customerName = order.customerName;
-            this.deliveryAddress = order.deliveryAddress;
-            this.contactNumber = String.valueOf(order. contactNumber);
+            this.customerName=order.customerName;
+            this.deliveryAddress=order.deliveryAddress;
+            this.contactNumber= Integer.parseInt(String.valueOf(order.contactNumber));
             return this;
         }
 
-
-        public Order build()
-        {
+        public Order build(){
             return new Order(this);
         }
 
 
-
     }
+
+
 
 }

@@ -18,7 +18,7 @@ class OrderDetailsRepositoryTest
 
     private static OrderDetailsRepository repository = OrderDetailsRepository.getRepository();
     private static OrderDetails orderDetails= OrderDetailsFactory.createOrderDetails("1"
-            ,"2","Rice",
+            ,"2",
             Integer.parseInt("5"), "R78","R78");
 
 

@@ -4,21 +4,23 @@ package za.ac.cput.factory;
  Entity for the OrderDetailsFactory
  Author: Edvalter da Costa Jamba (220446571)
  Date: 4 April 2022
+ Changes Date:3 August 2022
 */
 
+import za.ac.cput.domain.Order;
 import za.ac.cput.domain.OrderDetails;
+import za.ac.cput.domain.Product;
 import za.ac.cput.util.GenericHelper;
 
 
 public class OrderDetailsFactory
 {
-    public static OrderDetails createOrderDetails(String orderID, String productID, String productName
-            , int quantity  , String unitCost, String subTotal)
+    public static OrderDetails createOrderDetails(Order orderID, Product productID,Product productName,
+                                                  int quantity, String unitCost, String subTotal)
     {
 
         //Validation
-        if (GenericHelper.isNullorEmpty(orderID) || GenericHelper.isNullorEmpty(productID)|| GenericHelper.isNullorEmpty(productName)
-                || GenericHelper.isNullorEmpty(String.valueOf(quantity))|| GenericHelper.isNullorEmpty(unitCost)
+        if (GenericHelper.isNullorEmpty(String.valueOf(quantity))|| GenericHelper.isNullorEmpty(unitCost)
                 || GenericHelper.isNullorEmpty(subTotal) )
             return null;
 
