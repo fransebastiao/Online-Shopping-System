@@ -15,7 +15,6 @@ public class UserRoleFactory {
         if (GenericHelper.isNullorEmpty(roleType))
             return null;
 
-
         return new UserRole.Builder()
                 .setRoleId(GenericHelper.generateId())
                 .setRoleType(roleType)
