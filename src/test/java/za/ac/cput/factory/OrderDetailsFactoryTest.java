@@ -26,7 +26,8 @@ class OrderDetailsFactoryTest
     @Test
     public void test()
     {
-        OrderDetails orderDetails=OrderDetailsFactory.createOrderDetails(order,product, Integer.parseInt("5"), "R78","R78");
+        OrderDetails orderDetails=OrderDetailsFactory.createOrderDetails(order,product,
+                Integer.parseInt("5"), "R78","R78");
         System.out.println(orderDetails.toString());
         assertNotNull(orderDetails);
     }

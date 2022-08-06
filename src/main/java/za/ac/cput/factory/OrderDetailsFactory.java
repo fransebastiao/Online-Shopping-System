@@ -16,7 +16,7 @@ import za.ac.cput.util.GenericHelper;
 public class OrderDetailsFactory
 {
     public static OrderDetails createOrderDetails(Order orderID, Product productID,Product productName,
-                                                  int quantity, String unitCost, String subTotal)
+                                     int quantity, String unitCost, String subTotal)
     {
 
         //Validation

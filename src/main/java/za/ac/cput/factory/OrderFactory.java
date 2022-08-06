@@ -15,22 +15,6 @@ import za.ac.cput.util.GenericHelper;
 public class OrderFactory
 {
 
-
-
-    /*public static Order build(String orderID, String orderDate, String orderStatus, String customerName
-            , String deliveryAddress, int contactNumber)
-    {
-        GenericHelper.isNullorEmpty("Name");
-        GenericHelper.isNullorEmpty("Name");
-        GenericHelper.checkEmail(email);
-
-        return new Student.Builder()
-                .setStudentId(studentId)
-                .setEmail(email)
-                .setName(name)
-                .build();
-    }*/
-
    public static Order createOrder(String orderID, String orderDate, String orderStatus, String customerName
             , String deliveryAddress, int contactNumber)
     {
@@ -52,4 +36,18 @@ public class OrderFactory
                 .build();
 
     }
+
+     /*public static Order build(String orderID, String orderDate, String orderStatus, String customerName
+            , String deliveryAddress, int contactNumber)
+    {
+        GenericHelper.isNullorEmpty("Name");
+        GenericHelper.isNullorEmpty("Name");
+        GenericHelper.checkEmail(email);
+
+        return new Student.Builder()
+                .setStudentId(studentId)
+                .setEmail(email)
+                .setName(name)
+                .build();
+    }*/
 }

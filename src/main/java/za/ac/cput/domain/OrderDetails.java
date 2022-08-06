@@ -1,12 +1,5 @@
 package za.ac.cput.domain;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-import java.util.Objects;
-
 /*
  Online-Shopping-System
  Entity for the OrderDetails
@@ -14,6 +7,14 @@ import java.util.Objects;
  Date: 4 April 2022
  Changes Date:3 August 2022
 */
+
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
 @Entity
 public class OrderDetails implements Serializable
 {
