@@ -5,7 +5,6 @@ package za.ac.cput.factory;
  Author: Edvalter da Costa Jamba (220446571)
  Date: 4 April 2022
  Changes Date:3 August 2022
- Changes Date:3 August 2022
 */
 
 import za.ac.cput.domain.Order;
@@ -37,17 +36,5 @@ public class OrderFactory
 
     }
 
-     /*public static Order build(String orderID, String orderDate, String orderStatus, String customerName
-            , String deliveryAddress, int contactNumber)
-    {
-        GenericHelper.isNullorEmpty("Name");
-        GenericHelper.isNullorEmpty("Name");
-        GenericHelper.checkEmail(email);
 
-        return new Student.Builder()
-                .setStudentId(studentId)
-                .setEmail(email)
-                .setName(name)
-                .build();
-    }*/
 }

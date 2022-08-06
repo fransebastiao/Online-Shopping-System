@@ -15,11 +15,9 @@ import za.ac.cput.util.GenericHelper;
 
 public class OrderDetailsFactory
 {
-    public static OrderDetails createOrderDetails(Order orderID, Product productID,Product productName,
-                                     int quantity, String unitCost, String subTotal)
-    {
 
-        //Validation
+
+    public static OrderDetails createOrderDetails(int quantity, String unitCost, String subTotal, Order orderID, Product product) {
         if (GenericHelper.isNullorEmpty(String.valueOf(quantity))|| GenericHelper.isNullorEmpty(unitCost)
                 || GenericHelper.isNullorEmpty(subTotal) )
             return null;
@@ -27,12 +25,10 @@ public class OrderDetailsFactory
         //
         return new OrderDetails.Builder()
                 .setOrderID(orderID)
-                .setProductID(productID)
-                .setProductName(productName)
+                .setProductID(product)
                 .setQuantity(String.valueOf(quantity))
                 .setUniCost(unitCost)
                 .setSubTotal(subTotal)
                 .build();
-
     }
 }

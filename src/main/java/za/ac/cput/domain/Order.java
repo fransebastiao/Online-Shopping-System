@@ -1,3 +1,5 @@
+package za.ac.cput.domain;
+
 /*
  Online-Shopping-System
  Entity for the Order
@@ -6,7 +8,7 @@
  Changes Date:3 August 2022
 */
 
-package za.ac.cput.domain;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
