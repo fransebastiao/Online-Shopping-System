@@ -6,10 +6,21 @@ package za.ac.cput.domain;
 * 10/04/2022
  */
 
+
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Shipment
 {
+    @Id
+    @NotNull
 
     private String shipmentId;
+    @NotNull
+    @Embedded
     private int shipmentCost;
     private String customerName;
     private String deliveryAddress;
@@ -17,6 +28,9 @@ public class Shipment
     private int trackingNumber;
     private String shipmentDate;
     private String shipmentTime;
+
+    protected Shipment()
+    {}
 
     // private constractor
 
