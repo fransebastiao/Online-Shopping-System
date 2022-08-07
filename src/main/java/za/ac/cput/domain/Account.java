@@ -1,12 +1,22 @@
 package za.ac.cput.domain;
+/*
+Account Domain
+Author: Franciel Danilo de Carvalho Sebastiao
+Student Number: 219466912
+Date: O6/08/2022
+ */
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
+@Entity
 public class Account {
-
-    private String accountId;
-    private String openDate;
+    @Id String accountId;
+    @NotNull String openDate;
     private String closeDate;
 
-    private Account(){}
+    protected Account(){}
 
     private Account (Builder builder){
         this.accountId = builder.accountId;
@@ -17,34 +27,11 @@ public class Account {
     public String getAccountId() {
         return accountId;
     }
-
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
     public String getOpenDate() {
         return openDate;
     }
-
-    public void setOpenDate(String openDate) {
-        this.openDate = openDate;
-    }
-
     public String getCloseDate() {
         return closeDate;
-    }
-
-    public void setCloseDate(String closeDate) {
-        this.closeDate = closeDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "accountId=" + accountId +
-                ", openDate=" + openDate +
-                ", closeDate=" + closeDate +
-                '}';
     }
 
     public static class Builder{
@@ -77,6 +64,29 @@ public class Account {
         public Account build(){
             return new Account(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return Objects.equals(accountId, account.accountId) && Objects.equals(openDate, account.openDate)
+                && Objects.equals(closeDate, account.closeDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountId, openDate, closeDate);
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountId=" + accountId +
+                ", openDate=" + openDate +
+                ", closeDate=" + closeDate +
+                '}';
     }
 }
 
