@@ -1,12 +1,22 @@
 package za.ac.cput.domain;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Login {
+    @Id
+    @NotNull
     private String loginId;
+    @NotNull
+    @Embedded
     private String userId;
     private String userEmail;
     private String userPassword;
 
-    private Login(){
+    protected Login(){
     }
 
 public Login (Builder builder){
