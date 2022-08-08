@@ -1,17 +1,22 @@
 package za.ac.cput.domain;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Objects;
+
 /*
 User.java
 This class implement builder pattern for User
 Siphelele Nyathi 218334028
-O4.04.2022
+06.08.2022
  */
+@Entity
 public class User {
 
-    private String userId;
-    private String name;
-    private String email;
-    private String password;
-    private String address;
+    @Id private String userId;
+    private String name, email, password, address;
+
+    protected User(){}
 
     private User(Builder builder) {
 
@@ -25,41 +30,17 @@ public class User {
     public String getUserId() {
         return userId;
     }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getEmail() {
         return email;
     }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     @Override
@@ -104,9 +85,38 @@ public class User {
             return this;
         }
 
+        public Builder copy(User user){
+
+            this.userId = user.userId;
+            this.name = user.name;
+            this.email = user.email;
+            this.password = user.password;
+            this.address = user.address;
+
+            return this;
+        }
+
         public User build(){
             return new User(this);
         }
+    }
+
+    public boolean equals(Object o) {
+
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User that = (User) o;
+        return userId.equals(that.userId) &&
+                name.equals(that.name) &&
+                email.equals(that.email) &&
+                password.equals(that.password) &&
+                address.equals(that.address);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(userId, name, email, password, address);
     }
 }
 

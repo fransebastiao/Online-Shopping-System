@@ -8,7 +8,7 @@ import za.ac.cput.util.GenericHelper;
  Date: 7 April 2022
 */
 
-public class AccountFactory {
+public abstract class AccountFactory {
 
     public static Account saveAccount(String openDate, String closeDate){
         if(GenericHelper.isNullorEmpty(openDate) || GenericHelper.isNullorEmpty(closeDate))

@@ -1,18 +1,29 @@
 package za.ac.cput.domain;
+
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 /*
 Online Shopping System
 Lihle Langa 217181147
 entity for Payment
  */
+@Entity
 public class Payment {
+    @Id
+    @NotNull
     private String paymentId;
+    @NotNull
+    @Embedded
     private String paymentDate;
     private String paymentTime;
     private String paymentTotal;
     private String paymentDetails;
 
 
-    public Payment(){}
+    protected Payment(){}
 
     public Payment(Builder builder){
         this.paymentId = builder.paymentId;
@@ -61,6 +72,7 @@ public class Payment {
     public void setPaymentDetails(String paymentDetails) {
         this.paymentDetails = paymentDetails;
     }
+    @Override
     public String toString(){
         return "Payment{"+ "PaymentID='" + paymentId + '\'' +
                 ", PaymentDate='" + paymentDate + '\'' +

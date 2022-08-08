@@ -1,12 +1,23 @@
 package za.ac.cput.domain;
+/*
+Region Domain
+Author: Franciel Danilo de Carvalho Sebastiao
+Student Number: 219466912
+Date: O6/08/2022
+ */
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
+@Entity
 public class Region {
-    private String regionId;
-    private int streetNumber;
-    private String streetName;
-    private int zipCode;
+    @Id String regionId;
+    @NotNull int streetNumber;
+    @NotNull String streetName;
+    @NotNull int zipCode;
 
-    private Region(){}
+    protected Region(){}
 
     private Region (Region.Builder builder){
         this.regionId = builder.regionId;
@@ -18,41 +29,12 @@ public class Region {
     public String getRegionId() {
         return regionId;
     }
-
     public int getStreetNumber() { return streetNumber; }
-
     public String getStreetName() {
         return streetName;
     }
-
     public int getZipCode() {
         return zipCode;
-    }
-
-    public void setRegionId(String regionId) {
-        this.regionId = regionId;
-    }
-
-    public void setStreetNumber(int streetNumber) {
-        this.streetNumber = streetNumber;
-    }
-
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
-
-    public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
-    }
-
-    @Override
-    public String toString() {
-        return "Region{" +
-                "regionId=" + regionId +
-                ", streetNumber=" + streetNumber +
-                ", streetName='" + streetName + '\'' +
-                ", zipCode=" + zipCode +
-                '}';
     }
 
     public static class Builder{
@@ -92,5 +74,29 @@ public class Region {
         public Region build(){
             return new Region(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Region region = (Region) o;
+        return streetNumber == region.streetNumber && zipCode == region.zipCode &&
+                Objects.equals(regionId, region.regionId) && Objects.equals(streetName, region.streetName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(regionId, streetNumber, streetName, zipCode);
+    }
+
+    @Override
+    public String toString() {
+        return "Region{" +
+                "regionId=" + regionId +
+                ", streetNumber=" + streetNumber +
+                ", streetName='" + streetName + '\'' +
+                ", zipCode=" + zipCode +
+                '}';
     }
 }

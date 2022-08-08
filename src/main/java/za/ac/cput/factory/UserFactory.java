@@ -10,11 +10,8 @@ import za.ac.cput.util.GenericHelper;
 
 public class UserFactory {
 
-
     public static User createUser(String name, String email, String password, String address) {
 
-
-        //Simple regular expression
         if (GenericHelper.emailMatches(email, "^(.+)@(\\\\S+)$"))
             return null;
 
