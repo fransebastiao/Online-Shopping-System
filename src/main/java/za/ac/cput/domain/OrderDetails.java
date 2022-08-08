@@ -1,126 +1,129 @@
 package za.ac.cput.domain;
+
 /*
  Online-Shopping-System
  Entity for the OrderDetails
  Author: Edvalter da Costa Jamba (220446571)
  Date: 4 April 2022
+ Changes Date:3 August 2022
 */
 
-public class OrderDetails
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Entity
+public class OrderDetails implements Serializable
 {
 
-    private String orderID;
-    private String productID;
-    private String productName;
+    @Embedded
+    @Id
+    private Order orderID;
+
+    @Embedded
+    @NotNull
+    private Product productID,productName;
+
+    @NotNull
     private int quantity;
+
+    @NotNull
     private String unitCost;
+
+    @NotNull
     private String subTotal;
 
-    private OrderDetails(){}
+    protected OrderDetails(){  }
 
     //my builder constractor
-    public OrderDetails(Builder builder)
-    {
+    private OrderDetails(Builder builder){
         this.orderID = builder.orderID;
-        this.productID=builder.productID;
-        this.productName = builder.productName;
-        this.quantity = Integer.parseInt(builder.quantity);
-        this.unitCost = builder.unitCost;
-        this.subTotal = builder.subTotal;
-
+        this.productID = builder.productID;
+        this.productName = builder.productID;
+        this.quantity=builder.quantity;
+        this.unitCost=builder.unitCost;
+        this.subTotal=builder.subTotal;
     }
 
 
-    //Setter and Getter
-    public String getOrderID() {
+    public Order getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
-    }
-
-    public String getProductID() {
+    public Product getProductID() {
         return productID;
     }
 
-    public void setProductID(String productID) {
-        this.productID = productID;
-    }
-
-    public String getProductName() {
+    public Product getProductName() {
         return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
     }
 
     public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity( int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getUniCost() {
+    public String getUnitCost() {
         return unitCost;
-    }
-
-    public void setUniCost(String uniCost) {
-        this.unitCost = uniCost;
     }
 
     public String getSubTotal() {
         return subTotal;
     }
 
-    public void setSubTotal(String subTotal) {
-        this.subTotal = subTotal;
-    }
-
 
     @Override
     public String toString() {
         return "OrderDetails{" +
-                "orderID='" + orderID + '\'' +
-                ", productID='" + productID + '\'' +
-                ", productName='" + productName + '\'' +
-                ", quantity='" + quantity + '\'' +
+                "orderID=" + orderID +
+                ", productID=" + productID +
+                ", productName=" + productName +
+                ", quantity=" + quantity +
                 ", unitCost='" + unitCost + '\'' +
                 ", subTotal='" + subTotal + '\'' +
                 '}';
     }
 
-    //my builder pattern Class
-    public static class Builder
-    {
-        private String orderID;
-        private String productID;
-        private String productName;
-        private String quantity;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderDetails that = (OrderDetails) o;
+        return quantity == that.quantity && Objects.equals(orderID, that.orderID) && Objects.equals(productID, that.productID) && Objects.equals(productName, that.productName) && Objects.equals(unitCost, that.unitCost) && Objects.equals(subTotal, that.subTotal);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderID, productID, productName, quantity, unitCost, subTotal);
+    }
+
+    public static class Builder{
+
+        private Order orderID;
+        private Product productID,productName;
+        private int quantity;
         private String unitCost;
         private String subTotal;
 
-
-        public Builder setOrderID(String orderID) {
+        public Builder setOrderID(Order orderID) {
             this.orderID = orderID;
             return this;
         }
 
-        public Builder setProductID(String productID) {
+        public Builder setProductID(Product productID) {
             this.productID = productID;
             return this;
         }
 
-        public Builder setProductName(String productName) {
+        public Builder setProductName(Product productName) {
             this.productName = productName;
             return this;
         }
 
         public Builder setQuantity(String quantity) {
-            this.quantity = quantity;
+            this.quantity = Integer.parseInt(quantity);
             return this;
         }
 
@@ -134,27 +137,21 @@ public class OrderDetails
             return this;
         }
 
-
         //copy method//copy of employee object
-        public Builder copy(OrderDetails orderdetails)
+        public Builder builder(OrderDetails orderDetails)
         {
-
-
-            this.orderID = orderdetails.orderID;
-            this.productID = orderdetails.productID;
-            this.productName = orderdetails.productName;
-            this.quantity = String.valueOf(orderdetails.quantity);
-            this.unitCost = orderdetails.unitCost;
-            this.subTotal =orderdetails. subTotal;
+            this.orderID = orderDetails.orderID;
+            this.productID = orderDetails.productID;
+            this.productName = orderDetails.productName;
+            this.quantity=orderDetails.quantity;
+            this.unitCost=orderDetails.unitCost;
+            this.subTotal=orderDetails.subTotal;
             return this;
         }
 
-
-        public OrderDetails build()
-        {
+        public OrderDetails build(){
             return new OrderDetails(this);
         }
-
-
     }
+
 }

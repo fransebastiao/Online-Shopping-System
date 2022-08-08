@@ -4,6 +4,7 @@ package za.ac.cput.factory;
  Entity for the OrderFactory
  Author: Edvalter da Costa Jamba (220446571)
  Date: 4 April 2022
+ Changes Date:3 August 2022
 */
 
 import za.ac.cput.domain.Order;
@@ -12,7 +13,8 @@ import za.ac.cput.util.GenericHelper;
 
 public class OrderFactory
 {
-    public static Order createOrder(String orderID, String orderDate, String orderStatus, String customerName
+
+   public static Order createOrder(String orderID, String orderDate, String orderStatus, String customerName
             , String deliveryAddress, int contactNumber)
     {
 
@@ -33,4 +35,6 @@ public class OrderFactory
                 .build();
 
     }
+
+
 }
