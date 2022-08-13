@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7078e445-0467-4d72-b14a-9e0b247444ab" name="Changes" comment="Account and Repository using JPA framework">
+      <change afterPath="$PROJECT_DIR$/src/main/java/za/ac/cput/OnlineShoppingApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -13,10 +14,27 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="219466912" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,21 +51,15 @@
       <map>
         <entry key="com.haulmont.jpb.jpaInspector" value="false" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectId" id="2D4bFMs2LR9b1L7AuXE9rYpBuTD" />
+  <component name="ProjectId" id="27QrTceBYUX4Q8q8rr6gNqrZLD0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,9 +67,71 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
   </component>
-  <component name="RunManager" selected="JUnit.OrderFactoryTest.test">
-    <configuration name="OrderDetailsFactoryTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\SmartCruss Hp laptop\Desktop\Online-Shopping-System\.idea" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="za.ac.cput.service.impl" />
+      <recent name="za.ac.cput.factory" />
+      <recent name="za.ac.cput.entity" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.RegionRepositoryTest">
+    <configuration name="AccountRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="onlineShoppingCart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="za.ac.cput.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="za.ac.cput.repository" />
+      <option name="MAIN_CLASS_NAME" value="za.ac.cput.repository.AccountRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountRepositoryTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="onlineShoppingCart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="za.ac.cput.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="za.ac.cput.repository" />
+      <option name="MAIN_CLASS_NAME" value="za.ac.cput.repository.AccountRepositoryTest" />
+      <option name="METHOD_NAME" value="create" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountRepositoryTest.e_delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="onlineShoppingCart" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="za.ac.cput.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="za.ac.cput.repository" />
+      <option name="MAIN_CLASS_NAME" value="za.ac.cput.repository.AccountRepositoryTest" />
+      <option name="METHOD_NAME" value="e_delete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegionFactoryTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="onlineShoppingCart" />
       <extension name="coverage">
         <pattern>
@@ -66,94 +140,76 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="za.ac.cput.factory" />
-      <option name="MAIN_CLASS_NAME" value="za.ac.cput.factory.OrderDetailsFactoryTest" />
+      <option name="MAIN_CLASS_NAME" value="za.ac.cput.factory.RegionFactoryTest" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderDetailsRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegionRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="onlineShoppingCart" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="za.ac.cput.repository.Impl.*" />
+          <option name="PATTERN" value="za.ac.cput.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="za.ac.cput.repository.Impl" />
-      <option name="MAIN_CLASS_NAME" value="za.ac.cput.repository.Impl.OrderDetailsRepositoryTest" />
+      <option name="PACKAGE_NAME" value="za.ac.cput.repository" />
+      <option name="MAIN_CLASS_NAME" value="za.ac.cput.repository.RegionRepositoryTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderFactoryTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="onlineShoppingCart" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="za.ac.cput.factory.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="za.ac.cput.factory" />
-      <option name="MAIN_CLASS_NAME" value="za.ac.cput.factory.OrderFactoryTest" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="onlineShoppingCart" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="za.ac.cput.repository.Impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="za.ac.cput.repository.Impl" />
-      <option name="MAIN_CLASS_NAME" value="za.ac.cput.repository.Impl.OrderRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderRepositoryTest.A_create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="onlineShoppingCart" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="za.ac.cput.repository.Impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="za.ac.cput.repository.Impl" />
-      <option name="MAIN_CLASS_NAME" value="za.ac.cput.repository.Impl.OrderRepositoryTest" />
-      <option name="METHOD_NAME" value="A_create" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OrderRepositoryTest.A_create" />
-        <item itemvalue="JUnit.OrderRepositoryTest" />
-        <item itemvalue="JUnit.OrderFactoryTest.test" />
-        <item itemvalue="JUnit.OrderDetailsRepositoryTest" />
-        <item itemvalue="JUnit.OrderDetailsFactoryTest.test" />
+        <item itemvalue="JUnit.RegionRepositoryTest" />
+        <item itemvalue="JUnit.AccountRepositoryTest.e_delete" />
+        <item itemvalue="JUnit.AccountRepositoryTest.create" />
+        <item itemvalue="JUnit.AccountRepositoryTest" />
+        <item itemvalue="JUnit.RegionFactoryTest.test" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7078e445-0467-4d72-b14a-9e0b247444ab" name="Changes" comment="Account and Repository using JPA framework" />
-      <created>1659961445853</created>
+      <changelist id="7078e445-0467-4d72-b14a-9e0b247444ab" name="Changes" comment="" />
+      <created>1649263333478</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1659961445853</updated>
+      <updated>1649263333478</updated>
     </task>
+    <task id="LOCAL-00001" summary="Account and Region factory classes created with TDD">
+      <created>1649462110839</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1649462110840</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Account and Region factory classes created with TDD">
+      <created>1649462139433</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1649462139433</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Account and Region factory classes created with TDD">
+      <created>1649463887395</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1649463887395</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Account and Repository using JPA framework">
+      <created>1659800521602</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1659800521602</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -166,5 +222,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Account and Region factory classes created and TDD was used" />
+    <MESSAGE value="Account and Region factory classes created with TDD" />
+    <MESSAGE value="Account and Repository using JPA framework" />
+    <option name="LAST_COMMIT_MESSAGE" value="Account and Repository using JPA framework" />
   </component>
 </project>
