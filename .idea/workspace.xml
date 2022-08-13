@@ -175,10 +175,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.RegionRepositoryTest" />
+        <item itemvalue="JUnit.RegionFactoryTest.test" />
         <item itemvalue="JUnit.AccountRepositoryTest.e_delete" />
         <item itemvalue="JUnit.AccountRepositoryTest.create" />
         <item itemvalue="JUnit.AccountRepositoryTest" />
-        <item itemvalue="JUnit.RegionFactoryTest.test" />
       </list>
     </recent_temporary>
   </component>
