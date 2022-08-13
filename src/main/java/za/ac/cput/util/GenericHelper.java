@@ -14,5 +14,10 @@ public class GenericHelper {
 
         return UUID.randomUUID().toString();
     }
+
+    public static boolean emailMatches(String email, String s) {
+
+        return false;
+    }
 }
 
