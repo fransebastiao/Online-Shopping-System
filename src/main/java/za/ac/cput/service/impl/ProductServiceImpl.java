@@ -1,35 +1,36 @@
-package za.ac.cput.service.impl;
 /*
-Service Implementation for Account class
-Author: Franciel Danilo de Carvalho Sebastiao
-Student Number: 219466912
-Date: 13/08/2022
- */
+ * ProductServiceImpl.java
+ * Service Implementation class for Product
+ * Author: Sharfaa Sedick Anthony 220041571
+ * */
+
+package za.ac.cput.service.impl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.domain.Account;
-import za.ac.cput.repository.AccountRepository;
-import za.ac.cput.service.AccountService;
+import za.ac.cput.domain.Product;
+import za.ac.cput.repository.IProductRepository;
+import za.ac.cput.service.ProductService;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class AccountServiceImpl implements AccountService {
-    private final AccountRepository repository;
+public class ProductServiceImpl implements ProductService {
+    private final IProductRepository repository;
 
     @Autowired
-    public AccountServiceImpl(AccountRepository repository) {
+    public ProductServiceImpl(IProductRepository repository) {
         this.repository = repository;
     }
 
-
     @Override
-    public Account save(Account account) {
-        return this.repository.save(account);
+    public Product save(Product product) {
+        return this.repository.save(product);
     }
 
     @Override
-    public Account read(String s) {
+    public Product read(String s) {
         return this.repository.findById(s).orElse(null);
     }
 
@@ -43,7 +44,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Set<Account> findAll() {
+    public Set<Product> findAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 }

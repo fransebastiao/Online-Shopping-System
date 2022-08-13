@@ -41,6 +41,7 @@ public class Category {
                 '}';
     }
 
+
     public static class Builder {
         private String categoryId;
         private String categoryName;
