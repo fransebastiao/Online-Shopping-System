@@ -6,12 +6,24 @@ package za.ac.cput.domain;
  * 10/04/2022
  */
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class ShoppingCart
             {
+            @Id
+            @NotNull
             private String cartId;
+            @NotNull
+            @Embedded
             private int productId;
             private int quantity;
             private String dateAdded;
+            protected ShoppingCart()
+                {}
 
             // private constractor
             private ShoppingCart(Builder builder) {
