@@ -1,4 +1,4 @@
-package za.ac.cput.service.OrderService;
+package za.ac.cput.service.impl;
 /*
         Online-Shopping-System
         Services:OrderDetailsImpl
@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.OrderDetails;
 import za.ac.cput.repository.OrderDetailsRpository;
-import java.util.List;
-import java.util.Optional;
+import za.ac.cput.service.OrderDetailsService;
+
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -24,35 +26,30 @@ public class OrderDetailsServiceImpl implements OrderDetailsService
         this.repository = repository;
     }
 
+
     @Override
     public OrderDetails save(OrderDetails orderDetails) {
         return this.repository.save(orderDetails);
     }
 
     @Override
-    public Optional<OrderDetails> read(String id) {
-        return this.repository.findById(id);
+    public OrderDetails read(String s) {
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override
-    public void delete(OrderDetails orderDetails) {
-        this.repository.delete(orderDetails);
-    }
-
-    @Override
-    public List<OrderDetails> findAll() {
-        return this.repository.findAll();
-    }
-
-    @Override
-    public void deleteById(String id)
-    {
-
-        repository.deleteById(id);
-        Optional<OrderDetails> orderDetails = read(id);
-        if (orderDetails.isPresent()) {
-            delete(orderDetails.get());
+    public boolean delete(String s) {
+        if (this.repository.existsById(s)) {
+            this.repository.deleteById(s);
+            return true;
         }
-
+        return false;
     }
+
+    @Override
+    public Set<OrderDetails> findAll() {
+        return this.repository.findAll().stream().collect(Collectors.toSet());
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package za.ac.cput.service.OrderService;
+package za.ac.cput.service;
 /*
  Online-Shopping-System
  Services:OrderDetails Interface
@@ -11,5 +11,5 @@ import za.ac.cput.service.IService;
 
 
 public interface OrderDetailsService extends IService<OrderDetails, String> {
-    void deleteById(String id);
+
 }

@@ -1,4 +1,4 @@
-package za.ac.cput.service.OrderService;
+package za.ac.cput.service.impl;
 /*
         Online-Shopping-System
         Services:OrderServiceImpl
@@ -11,9 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Order;
 import za.ac.cput.repository.OrderRepository;
+import za.ac.cput.service.OrderService;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService
@@ -27,38 +28,28 @@ public class OrderServiceImpl implements OrderService
         this.repository = repository;
     }
 
+
     @Override
-    public Order save(Order order)
-    {
+    public Order save(Order order) {
         return this.repository.save(order);
     }
 
     @Override
-    public Optional<Order> read(String id) {
-        return this.repository.findById(id);
+    public Order read(String s) {
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override
-    public void delete(Order order)
-    {
-        this.repository.delete(order);
-
+    public Set<Order> findAll() {
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
-    public List<Order> findAll() {
-        return this.repository.findAll();
-    }
-
-    @Override
-    public void deleteById(String id)
-    {
-
-        repository.deleteById(id);
-        Optional<Order> order = read(id);
-        if (order.isPresent()) {
-            delete(order.get());
+    public boolean delete(String s) {
+        if (this.repository.existsById(s)) {
+            this.repository.deleteById(s);
+            return true;
         }
-
+        return false;
     }
 }
