@@ -1,4 +1,9 @@
 package za.ac.cput.domain;
+/*
+Online Shopping System
+Lihle Langa 217181147
+entity for Login
+ */
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
