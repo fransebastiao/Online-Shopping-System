@@ -11,6 +11,6 @@ import java.util.List;
 
 public interface ShipmentService extends IService<Shipment, String>
 {
-    List<Shipment> findAll();
-    void deleteById(String id);
+    Set<Shipment> findAll();
+    boolean deleteById(String id);
 }

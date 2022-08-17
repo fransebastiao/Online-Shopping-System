@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface ShoppingCartServise extends IService<ShoppingCart, String>
 {
-    List<ShoppingCart> findAll();
-    void deleteById(String id);
+    Set<ShoppingCart> findAll();
+    boolean deleteById(String id);
 }
