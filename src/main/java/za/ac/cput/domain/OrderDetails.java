@@ -9,6 +9,7 @@ package za.ac.cput.domain;
 */
 
 import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -19,8 +20,7 @@ import java.util.Objects;
 public class OrderDetails implements Serializable
 {
 
-    @Embedded
-    @Id
+    @EmbeddedId
     private Order orderID;
 
     @Embedded
