@@ -33,7 +33,7 @@ class OrderDetailsFactoryTest
         Product product = ProductFactory.createProduct("Rice","EC","R123");
 
         OrderDetails orderDetails=OrderDetailsFactory.createOrderDetails(
-                Integer.parseInt("5"), "R78","R78",order,product);
+                Integer.parseInt("5"), "R78","R78", Integer.parseInt("1"),product);
         System.out.println(orderDetails.toString());
         assertNotNull(orderDetails);
     }

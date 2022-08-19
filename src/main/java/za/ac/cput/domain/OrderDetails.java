@@ -9,6 +9,7 @@ package za.ac.cput.domain;
 */
 
 import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -19,11 +20,10 @@ import java.util.Objects;
 public class OrderDetails implements Serializable
 {
 
-    @Embedded
     @Id
-    private Order orderID;
+    private int orderDetailID;
 
-    @Embedded
+
     @NotNull
     private Product productID,productName;
 
@@ -40,7 +40,7 @@ public class OrderDetails implements Serializable
 
     //my builder constractor
     private OrderDetails(Builder builder){
-        this.orderID = builder.orderID;
+        this.orderDetailID = builder.orderDetailID;
         this.productID = builder.productID;
         this.productName = builder.productID;
         this.quantity=builder.quantity;
@@ -49,8 +49,8 @@ public class OrderDetails implements Serializable
     }
 
 
-    public Order getOrderID() {
-        return orderID;
+    public int getOrderDetailID() {
+        return orderDetailID;
     }
 
     public Product getProductID() {
@@ -77,7 +77,7 @@ public class OrderDetails implements Serializable
     @Override
     public String toString() {
         return "OrderDetails{" +
-                "orderID=" + orderID +
+                "orderID=" + orderDetailID +
                 ", productID=" + productID +
                 ", productName=" + productName +
                 ", quantity=" + quantity +
@@ -91,24 +91,24 @@ public class OrderDetails implements Serializable
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderDetails that = (OrderDetails) o;
-        return quantity == that.quantity && Objects.equals(orderID, that.orderID) && Objects.equals(productID, that.productID) && Objects.equals(productName, that.productName) && Objects.equals(unitCost, that.unitCost) && Objects.equals(subTotal, that.subTotal);
+        return quantity == that.quantity && Objects.equals(orderDetailID, that.orderDetailID) && Objects.equals(productID, that.productID) && Objects.equals(productName, that.productName) && Objects.equals(unitCost, that.unitCost) && Objects.equals(subTotal, that.subTotal);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderID, productID, productName, quantity, unitCost, subTotal);
+        return Objects.hash(orderDetailID, productID, productName, quantity, unitCost, subTotal);
     }
 
     public static class Builder{
 
-        private Order orderID;
+        private int orderDetailID;
         private Product productID,productName;
         private int quantity;
         private String unitCost;
         private String subTotal;
 
-        public Builder setOrderID(Order orderID) {
-            this.orderID = orderID;
+        public Builder setOrderDetailID(String orderDetailID) {
+            this.orderDetailID = Integer.parseInt(orderDetailID);
             return this;
         }
 
@@ -140,7 +140,7 @@ public class OrderDetails implements Serializable
         //copy method//copy of employee object
         public Builder builder(OrderDetails orderDetails)
         {
-            this.orderID = orderDetails.orderID;
+            this.orderDetailID = orderDetails.orderDetailID;
             this.productID = orderDetails.productID;
             this.productName = orderDetails.productName;
             this.quantity=orderDetails.quantity;
