@@ -14,15 +14,14 @@ import za.ac.cput.domain.ShoppingCart;
 import za.ac.cput.factory.ShipmentFactory;
 import za.ac.cput.factory.ShoppingCartFactory;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ShoppingCartServiseImplTest
 {
-    @Autowired
-    private  ShoppingCart shoppingCart ;
+
+    ShoppingCart shoppingCart = ShoppingCartFactory.createShoppingCart("25008", 258,369,"12/8/2022");
 
     @Autowired
     private ShoppingCartServiseImpl shoppingCartServiseImpl;
@@ -39,24 +38,29 @@ class ShoppingCartServiseImplTest
     @Test
     void read()
     {
-        Optional<ShoppingCart> read = this.shoppingCartServiseImpl.read(this.shoppingCart.getCartId());
-        assertAll(
-                () -> assertTrue(read.isPresent()),
-                () -> assertEquals(this.shoppingCart, read.get()));
+
+        ShoppingCart optionalCart = shoppingCartServiseImpl.read(shoppingCart.getCartId());
+
+        assertEquals(shoppingCart.getCartId(), optionalCart.getCartId());
+
+        System.out.println("Show Cart: " + optionalCart);
     }
     @Order(4)
     @Test
     void delete()
     {
-        this.shoppingCartServiseImpl.deleteById(this.shoppingCart.getCartId());
-        List<ShoppingCart> shoppingCartList = this.shoppingCartServiseImpl.findAll();
-        assertEquals(0, shoppingCartList.size());
+
+        boolean isDeleted = shoppingCartServiseImpl.delete(shoppingCart.getCartId());
+        Set<ShoppingCart> cartSet = shoppingCartServiseImpl.findAll();
+
+        assertEquals(0, cartSet.size());
+        System.out.println("Deleted Cart: " + isDeleted);
     }
     @Order(3)
     @Test
     void findAll()
     {
-        List<ShoppingCart> shoppingCartList = this.shoppingCartServiseImpl.findAll();
+        Set<ShoppingCart> shoppingCartList = this.shoppingCartServiseImpl.findAll();
         assertEquals(1, shoppingCartList.size());
         System.out.println(shoppingCartList);
     }

@@ -11,9 +11,8 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Shipment;
 import za.ac.cput.repository.ShipmentRepository;
 import za.ac.cput.service.ShipmentService;
-
-import java.util.List;
-import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 
@@ -34,32 +33,36 @@ public class ShipmentServiceImpl implements ShipmentService
     }
 
     @Override
-    public Optional<Shipment> read(String id)
+    public Shipment read(String id)
     {
-        return this.repository.findById(id);
+        return this.repository.findById(id).orElse(null);
+    }
+
+
+
+    @Override
+    public Set<Shipment> findAll()
+    {
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
-    public void delete(Shipment shipment)
+    public boolean delete(String id)
     {
-        //this.repository.delete(shipment);
-    }
-
-    @Override
-    public List<Shipment> findAll()
-    {
-        return this.repository.findAll();
-    }
-
-    @Override
-    public void deleteById(String id)
-    {
-        repository.deleteById(id);
-        Optional<Shipment> Shipment = read(id);
-        if (Shipment.isPresent())
+        if (this.repository.existsById(id))
         {
-            delete(Shipment.get());
+            this.repository.deleteById(id);
+            return true;
         }
 
+        return false;
     }
+
+
+    @Override
+    public boolean deleteById(String id) {
+        return false;
+    }
+
+
 }
