@@ -8,6 +8,7 @@ package za.ac.cput.service;
 import za.ac.cput.domain.Shipment;
 
 import java.util.List;
+import java.util.Set;
 
 public interface ShipmentService extends IService<Shipment, String>
 {
