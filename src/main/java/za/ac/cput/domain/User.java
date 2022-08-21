@@ -1,20 +1,25 @@
 package za.ac.cput.domain;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Objects;
-
 /*
 User.java
 This class implement builder pattern for User
 Siphelele Nyathi 218334028
-06.08.2022
+21.08.2022
  */
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
 @Entity
+@Table(name = "user_records")
 public class User {
 
-    @Id private String userId;
-    private String name, email, password, address;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String userId;
+    @Column @NotNull private String name;
+    @Column @NotNull private String email;
+    @Column @NotNull private String password;
+    @Column @NotNull private String address;
+
 
     protected User(){}
 
