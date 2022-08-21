@@ -20,4 +20,5 @@ public class ProductFactory {
                 .setProdPrice(prodPrice)
                 .build();
     }
+
 }

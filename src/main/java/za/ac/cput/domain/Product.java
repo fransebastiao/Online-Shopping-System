@@ -6,10 +6,21 @@
 
 package za.ac.cput.domain;
 
-public class Product {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+
+@Entity
+public class Product implements Serializable {
+    @NotNull
+    @Id
     private String productID;
+    @NotNull
     private String productName;
+    @NotNull
     private String prodDescription;
+    @NotNull
     private String prodPrice;
 
     public Product() {
