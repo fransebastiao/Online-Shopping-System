@@ -34,6 +34,20 @@ public class Account {
         return closeDate;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return Objects.equals(accountId, account.accountId) && Objects.equals(openDate, account.openDate)
+                && Objects.equals(closeDate, account.closeDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountId, openDate, closeDate);
+    }
+
     public static class Builder{
         private String accountId;
         private String openDate;
@@ -64,20 +78,6 @@ public class Account {
         public Account build(){
             return new Account(this);
         }
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Account account = (Account) o;
-        return Objects.equals(accountId, account.accountId) && Objects.equals(openDate, account.openDate)
-                && Objects.equals(closeDate, account.closeDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(accountId, openDate, closeDate);
     }
 
     @Override
