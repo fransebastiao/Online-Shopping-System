@@ -39,7 +39,7 @@ class OrderControllerTest {
         assertNotNull(controller);
         this.order = OrderFactory.createOrder("1","18th of August, 2022",
                 "on the way" ,"Edvalter","cape", Integer.parseInt("087373999"));
-        this.baseUrl = "http://localhost:" + this.port + "/online-shopping-system/account/";
+        this.baseUrl = "http://localhost:" + this.port + "/online-shopping-system/order/";
     }
 
 
