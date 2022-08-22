@@ -1,20 +1,22 @@
 package za.ac.cput.domain;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Objects;
-
 /*
 UserRole.java
 This class implement builder pattern for UserRole
 Siphelele Nyathi 218334028
-06.08.2022
+21.08.2022
  */
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
+
 @Entity
+@Table(name = "role_records")
 public class UserRole {
 
-    @Id private String roleId;
-    private String roleType;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String roleId;
+    @Column @NotNull private String roleType;
 
     protected UserRole(){}
 

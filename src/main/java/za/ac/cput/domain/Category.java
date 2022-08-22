@@ -6,9 +6,19 @@
 
 package za.ac.cput.domain;
 
-public class Category {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+
+@Entity
+public class Category implements Serializable {
+    @NotNull
+    @Id
     private String categoryId;
+    @NotNull
     private String categoryName;
+    @NotNull
     private String categoryDescription;
 
     public Category() {
