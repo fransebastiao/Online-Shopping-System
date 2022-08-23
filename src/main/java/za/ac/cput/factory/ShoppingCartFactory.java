@@ -22,7 +22,15 @@ public class ShoppingCartFactory
             return null;
 
 
-        return new ShoppingCart.Builder().setCartId(cartId).setProductId(productId).setQuantity(quantity).setDateAdded(dateAdded)
-                .builder();
+        return new ShoppingCart.Builder().setCartId(cartId).setProductId(productId)
+                .setQuantity(quantity).setDateAdded(dateAdded)
+                .build();
+    }
+
+    public static ShoppingCart build(String cartId, int productId, int quantity, String dateAdded)
+    {
+        return new ShoppingCart.Builder().setCartId(cartId).setProductId(productId)
+                .setQuantity(quantity).setDateAdded(dateAdded)
+                .build();
     }
 }
