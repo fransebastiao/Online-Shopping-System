@@ -111,7 +111,7 @@ public class ShoppingCart
                     return this;
                 }
 
-                public ShoppingCart builder(){
+                public ShoppingCart build(){
                     return new ShoppingCart(this);
                 }
 

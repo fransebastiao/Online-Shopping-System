@@ -62,23 +62,25 @@ public class Shipment
         this.shipmentCost = shipmentCost;
     }
 
-    public String getcustomerName() {
+    public String getCustomerName() {
         return customerName;
     }
 
     public void setCustomerName(String customerName) {
-        this.customerName=customerName;
+        this.customerName = customerName;
     }
 
     public String getDeliveryAddress() {
         return deliveryAddress;
     }
 
-    public void setDeliveryAddress(String deliveryAddress) {
+    public void setDeliveryAddress(String deliveryAddress)
+    {
         this.deliveryAddress = deliveryAddress;
     }
 
-    public int getContactNumber() {
+    public int getContactNumber()
+    {
         return contactNumber;
     }
 
@@ -189,7 +191,7 @@ public class Shipment
             return this;
         }
 
-        public Shipment builder()
+        public Shipment build()
         {
             return new Shipment(this);
         }
