@@ -35,7 +35,7 @@ class ShipmentControllerTest
     void setUp()
     {
         assertNotNull(controller);
-        this.shipment = ShipmentFactory.build("102500", 65454,"Tshepang" ,"Y39 Tafa Street Site B"
+        this.shipment = ShipmentFactory.createShipment("102500", 65454,"Tshepang" ,"Y39 Tafa Street Site B"
                 , 2158987, 2464, "12/Aug/2022", "12:00 pm");
         this.baseUrl = "http://localhost:" + this.port + "/schoolmanagement/shipment/";
     }

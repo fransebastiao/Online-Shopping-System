@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Category;
 import za.ac.cput.repository.ICategoryRepository;
 import za.ac.cput.service.CategoryService;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 

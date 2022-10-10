@@ -21,51 +21,40 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class UserServiceImplTest {
 
-    User user = UserFactory.createUser("Siphelele Nyathi", "218334028@mycput.ac.za",
+    private static final User user1 = UserFactory.createUser("Siphelele Nyathi", "218334028@mycput.ac.za",
             "SN218330428", "Milnerton");
 
     @Autowired
     private UserService userService;
 
-    @Order(1)
     @Test
-    void save()
+    void a_save()
     {
-        User newUser = userService.save(user);
-
-        assertEquals(user, newUser);
+        User newUser = userService.save(user1);
+        assertEquals(user1, newUser);
         System.out.println("Saved User: " + newUser);
     }
 
-    @Order(2)
     @Test
-    void read()
+    void b_read()
     {
-        User optionalUser = userService.read(user.getUserId());
-
-        assertEquals(user.getUserId(), optionalUser.getUserId());
-
-        System.out.println("Searched User: " + optionalUser);
+        User read = userService.read(user1.getUserId());
+        assertEquals(read.getUserId(), user1.getUserId());
+        System.out.println("Searched User: " + read);
     }
 
-    @Order(4)
     @Test
-    void delete()
+    void d_delete()
     {
-        boolean isDeleted = userService.delete(user.getUserId());
-        Set<User> userSet = userService.findAll();
-
-        assertEquals(0, userSet.size());
+        boolean isDeleted = userService.delete(user1.getUserId());
+        assertTrue(isDeleted);
         System.out.println("Deleted User: " + isDeleted);
     }
 
-    @Order(3)
     @Test
-    void findAll()
+    void c_findAll()
     {
         Set<User> userSet = userService.findAll();
-        assertEquals(1, userSet.size());
-
         System.out.println(userSet);
     }
 }

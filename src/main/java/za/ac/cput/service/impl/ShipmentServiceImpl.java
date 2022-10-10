@@ -1,9 +1,9 @@
 /*
-* shipment
-* Online-Shopping-System
-* 216217717
-*  12/08/2022
-* */
+ * shipment
+ * Online-Shopping-System
+ * 216217717
+ *  12/08/2022
+ * */
 package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-
 public class ShipmentServiceImpl implements ShipmentService
 {
     private final ShipmentRepository repository;
@@ -54,15 +53,6 @@ public class ShipmentServiceImpl implements ShipmentService
             this.repository.deleteById(id);
             return true;
         }
-
         return false;
     }
-
-
-    @Override
-    public boolean deleteById(String id) {
-        return false;
-    }
-
-
 }

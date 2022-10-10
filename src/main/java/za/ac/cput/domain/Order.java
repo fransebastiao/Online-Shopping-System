@@ -9,19 +9,19 @@ package za.ac.cput.domain;
 */
 
 
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@Table(name = "orders")
 public class Order implements Serializable
 {
 
     @NotNull
     @Id
+    @Column(name = "order_id")
     private String orderID;
 
     @NotNull private String orderDate;
@@ -29,6 +29,9 @@ public class Order implements Serializable
     @NotNull private String customerName;
     @NotNull private String deliveryAddress;
     @NotNull private int contactNumber;
+    @NotNull
+    @Embedded
+    private OrderDetails details;
 
     //
     protected Order(){ }
@@ -41,31 +44,28 @@ public class Order implements Serializable
         this.customerName=builder.customerName;
         this.deliveryAddress=builder.deliveryAddress;
         this.contactNumber= Integer.parseInt(String.valueOf(builder.contactNumber));
+        this.details = builder.details;
     }
     //Getters
     public String getOrderID() {
         return orderID;
     }
-
     public String getOrderDate() {
         return orderDate;
     }
-
     public String getOrderStatus() {
         return orderStatus;
     }
-
     public String getCustomerName() {
         return customerName;
     }
-
     public String getDeliveryAddress() {
         return deliveryAddress;
     }
-
     public int getContactNumber() {
         return contactNumber;
     }
+    public OrderDetails getDetails(){return details;}
 
     @Override
     public String toString() {
@@ -75,21 +75,22 @@ public class Order implements Serializable
                 ", orderStatus='" + orderStatus + '\'' +
                 ", customerName='" + customerName + '\'' +
                 ", deliveryAddress='" + deliveryAddress + '\'' +
-                ", contactNumber=" + contactNumber +
+                ", contactNumber=" + contactNumber + '\'' +
+                ", orderDetails=" + details +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Order)) return false;
         Order order = (Order) o;
-        return contactNumber == order.contactNumber && Objects.equals(orderID, order.orderID) && Objects.equals(orderDate, order.orderDate) && Objects.equals(orderStatus, order.orderStatus) && Objects.equals(customerName, order.customerName) && Objects.equals(deliveryAddress, order.deliveryAddress);
+        return contactNumber == order.contactNumber && Objects.equals(orderID, order.orderID) && Objects.equals(orderDate, order.orderDate) && Objects.equals(orderStatus, order.orderStatus) && Objects.equals(customerName, order.customerName) && Objects.equals(deliveryAddress, order.deliveryAddress) && Objects.equals(details, order.details);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderID, orderDate, orderStatus, customerName, deliveryAddress, contactNumber);
+        return Objects.hash(orderID, orderDate, orderStatus, customerName, deliveryAddress, contactNumber, details);
     }
 
     public static class Builder{
@@ -100,6 +101,8 @@ public class Order implements Serializable
         private String customerName;
         private String deliveryAddress;
         private int contactNumber;
+
+        private OrderDetails details;
 
         public Builder setOrderID(String orderID) {
             this.orderID = orderID;
@@ -131,6 +134,11 @@ public class Order implements Serializable
             this.contactNumber = Integer.parseInt(contactNumber);
             return this;
         }
+
+        public Builder setDetails(OrderDetails details) {
+            this.details = details;
+            return this;
+        }
         //copy method//copy of Order object
         public Order.Builder builder(Order order)
         {
@@ -140,6 +148,7 @@ public class Order implements Serializable
             this.customerName=order.customerName;
             this.deliveryAddress=order.deliveryAddress;
             this.contactNumber= Integer.parseInt(String.valueOf(order.contactNumber));
+            this.details = order.details;
             return this;
         }
 

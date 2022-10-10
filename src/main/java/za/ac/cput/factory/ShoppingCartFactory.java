@@ -15,7 +15,7 @@ public class ShoppingCartFactory
 {
 
     // create all account object
-    public static ShoppingCart createShoppingCart (String cartId,int productId, int quantity, String dateAdded){
+    public static ShoppingCart createShoppingCart (String cartId,String productId, int quantity, String dateAdded){
 
 
         if (GenericHelper.isNullorEmpty(cartId))
@@ -27,10 +27,4 @@ public class ShoppingCartFactory
                 .build();
     }
 
-    public static ShoppingCart build(String cartId, int productId, int quantity, String dateAdded)
-    {
-        return new ShoppingCart.Builder().setCartId(cartId).setProductId(productId)
-                .setQuantity(quantity).setDateAdded(dateAdded)
-                .build();
-    }
 }

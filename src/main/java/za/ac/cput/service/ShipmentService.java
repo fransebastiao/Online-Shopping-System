@@ -10,8 +10,6 @@ import za.ac.cput.domain.Shipment;
 import java.util.List;
 import java.util.Set;
 
-public interface ShipmentService extends IService<Shipment, String>
-{
-    Set<Shipment> findAll();
-    boolean deleteById(String id);
+public interface ShipmentService extends IService<Shipment, String> {
+
 }

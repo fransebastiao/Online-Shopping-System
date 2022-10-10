@@ -10,9 +10,10 @@ class LoginFactoryTest {
     @Test
     public void test(){
 
-        Login login = LoginFactory.createLogin("Lihle.Langa", "Lihle", "217181147@mycput.ac.za", "LihleLanga20");
+        Login login = LoginFactory.createLogin("217181147@mycput.ac.za", "LihleLanga20");
 
         assertNotNull(login);
+        System.out.println(login);
 
     }
 

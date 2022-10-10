@@ -16,7 +16,7 @@ import za.ac.cput.service.ShipmentService;
 import java.util.Set;
 
 @RestController
-@RequestMapping("school-management/student-address/")
+@RequestMapping("online-shopping-system/shipment/")
 @Slf4j
 public class ShipmentController
 {
@@ -32,7 +32,7 @@ public class ShipmentController
     {
         Shipment save = this.shipmentService.save(shipment);
         return ResponseEntity.ok(save);
-        }
+    }
 
 
 
@@ -40,14 +40,14 @@ public class ShipmentController
     public ResponseEntity <Shipment> delete (@PathVariable String id  )
     {
         log.info("Read request: {}", id);
-        this.shipmentService.deleteById(id);
+        this.shipmentService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("read/{id}/{quality}, {dateAdded}")
 
     public ResponseEntity<Shipment> read (@PathVariable String id)
-        {
+    {
         log.info("Read request: {}", id);
         Shipment shipment = this.shipmentService.read(id);
         return ResponseEntity.ok(shipment);

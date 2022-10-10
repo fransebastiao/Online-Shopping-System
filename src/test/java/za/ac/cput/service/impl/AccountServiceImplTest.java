@@ -49,14 +49,14 @@ class AccountServiceImplTest {
     }
 
     @Test
-    void f_delete() {
+    void d_delete() {
         boolean success = service.delete(account1.getAccountId());
         assertTrue(success);
         System.out.println("Delete account: " + success);
     }
 
     @Test
-    void d_getALl() {
+    void c_getALl() {
         System.out.println("Show all accounts");
         System.out.println(service.findAll());
     }

@@ -20,7 +20,7 @@ class PaymentServiceImplTest {
     private PaymentServiceImpl service;
 
     @Test
-    void save() {
+    void a_save() {
         System.out.println("Saved Payments: ");
         Payment saved1 = service.save(payment1);
         assertNotNull(saved1);
@@ -32,20 +32,20 @@ class PaymentServiceImplTest {
     }
 
     @Test
-    void read() {
+    void b_read() {
         Payment read = service.read(payment1.getPaymentId());
         assertEquals(read.getPaymentId(), payment1.getPaymentId());
         System.out.println("Show payment: " + read);
     }
 
     @Test
-    void findAll() {
+    void c_findAll() {
         System.out.println("Show all payments");
         System.out.println(service.findAll());
     }
 
     @Test
-    void delete() {
+    void d_delete() {
         boolean success = service.delete(payment1.getPaymentId());
         assertTrue(success);
         System.out.println("Delete payment: " + success);

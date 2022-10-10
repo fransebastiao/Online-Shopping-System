@@ -10,13 +10,17 @@ import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
-@Table(name = "role_records")
+@Table(name = "roles")
 public class UserRole {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "role_id")
     private String roleId;
-    @Column @NotNull private String roleType;
+    @Column(name = "role_type")
+    @NotNull private String roleType;
+
+
 
     protected UserRole(){}
 

@@ -15,9 +15,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
-   private final PaymentRepository repository;
+    private final PaymentRepository repository;
 
-   @Autowired
+    @Autowired
     public PaymentServiceImpl(PaymentRepository repository) {
         this.repository = repository;
     }
@@ -29,22 +29,21 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public Payment read(String s) {
-        return this.repository.findById(s).orElse(null);
+    public Payment read(String id) {
+        return this.repository.findById(id).orElse(null);
     }
 
     @Override
     public Set<Payment> findAll() {
-            return this.repository.findAll().stream().collect(Collectors.toSet());
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
-    public boolean delete(String s) {
-       if (this.repository.existsById(s)) {
-        this.repository.deleteById(s);
-        return true;
-    }
-
+    public boolean delete(String id) {
+        if (this.repository.existsById(id)) {
+            this.repository.deleteById(id);
+            return true;
+        }
         return false;
     }
 }

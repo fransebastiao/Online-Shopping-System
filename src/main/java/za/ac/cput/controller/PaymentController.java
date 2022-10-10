@@ -16,7 +16,7 @@ import java.util.Set;
 
 
 @RestController
-@RequestMapping("online-shopping-system/account")
+@RequestMapping("online-shopping-system/payment")
 @Slf4j
 public class PaymentController {
     private final PaymentService paymentService;

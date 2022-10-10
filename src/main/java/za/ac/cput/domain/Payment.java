@@ -1,9 +1,11 @@
 package za.ac.cput.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /*
 Online Shopping System
@@ -11,12 +13,13 @@ Lihle Langa 217181147
 entity for Payment
  */
 @Entity
-public class Payment {
+public class Payment implements Serializable {
     @Id
     @NotNull
+    @Column(name = "payment_id")
     private String paymentId;
     @NotNull
-    @Embedded
+    //@Embedded
     private String paymentDate;
     private String paymentTime;
     private String paymentTotal;
@@ -37,48 +40,29 @@ public class Payment {
         return paymentId;
     }
 
-    public void setPaymentId(String paymentId) {
-        this.paymentId = paymentId;
-    }
-
     public String getPaymentDate() {
         return paymentDate;
-    }
-
-    public void setPaymentDate(String paymentDate) {
-        this.paymentDate = paymentDate;
     }
 
     public String getPaymentTime() {
         return paymentTime;
     }
 
-    public void setPaymentTime(String paymentTime) {
-        this.paymentTime = paymentTime;
-    }
-
     public String getPaymentTotal() {
         return paymentTotal;
-    }
-
-    public void setPaymentTotal(String paymentTotal) {
-        this.paymentTotal = paymentTotal;
     }
 
     public String getPaymentDetails() {
         return paymentDetails;
     }
 
-    public void setPaymentDetails(String paymentDetails) {
-        this.paymentDetails = paymentDetails;
-    }
     @Override
     public String toString(){
         return "Payment{"+ "PaymentID='" + paymentId + '\'' +
                 ", PaymentDate='" + paymentDate + '\'' +
                 ", PaymentTime='" + paymentTime + '\'' +
                 ", PaymentTotal='" + paymentTotal +'\'' +
-        ", Payment Details+ '" + paymentDetails + "}";
+                ", Payment Details+ '" + paymentDetails + "}";
 
     }
 

@@ -6,7 +6,9 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Order;
+import za.ac.cput.domain.OrderDetails;
 import za.ac.cput.domain.Product;
+import za.ac.cput.factory.OrderDetailsFactory;
 import za.ac.cput.factory.OrderFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,9 +18,9 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class OrderServiceImplTest {
 
-
+    private static final OrderDetails details = OrderDetailsFactory.createOrderDetails( 5, "R20","R100");
     private static final Order order = OrderFactory.createOrder("1", "13/08/2022", "Ready",
-            "Edvalter","Cape Town", Integer.parseInt("0999999"));
+            "Edvalter","Cape Town", Integer.parseInt("0999999"), details);
 
     @Autowired
     private OrderServiceImpl service;
@@ -42,7 +44,7 @@ class OrderServiceImplTest {
     }
 
     @Test
-    void c_delete()
+    void d_delete()
     {
         boolean success = service.delete(order.getOrderID());
         assertTrue(success);
@@ -50,7 +52,7 @@ class OrderServiceImplTest {
     }
 
     @Test
-    void d_findAll()
+    void c_findAll()
     {
         System.out.println("Get All");
         System.out.println(service.findAll());

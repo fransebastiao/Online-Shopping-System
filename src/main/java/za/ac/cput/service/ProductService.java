@@ -9,5 +9,5 @@ package za.ac.cput.service;
 import za.ac.cput.domain.Product;
 
 public interface ProductService extends IService<Product, String> {
-    boolean delete(String s);
+
 }

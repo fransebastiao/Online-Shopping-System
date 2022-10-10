@@ -12,6 +12,5 @@ import za.ac.cput.domain.ShoppingCart;
 
 
 @Repository
-public interface ShoppingCartRepository extends JpaRepository<ShoppingCart, String>
-{
+public interface ShoppingCartRepository extends JpaRepository<ShoppingCart, String> {
 }

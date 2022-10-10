@@ -11,6 +11,4 @@ import java.util.Set;
 
 @Repository
 public interface LoginRepository extends JpaRepository<Login, String> {
-
-    Set<Login> getAll();
 }

@@ -1,11 +1,12 @@
 /*
-* Product.java
-* Entity for the Product
-* Author: Sharfaa Sedick Anthony 220041571
-* */
+ * Product.java
+ * Entity for the Product
+ * Author: Sharfaa Sedick Anthony 220041571
+ * */
 
 package za.ac.cput.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -15,8 +16,10 @@ import java.io.Serializable;
 public class Product implements Serializable {
     @NotNull
     @Id
+    @Column(name = "product_id")
     private String productID;
     @NotNull
+    @Column(name = "product_name")
     private String productName;
     @NotNull
     private String prodDescription;
@@ -34,20 +37,9 @@ public class Product implements Serializable {
     }
 
     public String getProductID() {return productID;}
-
-    public void setProductID(String productID) {this.productID = productID;}
-
     public String getProductName() {return productName;}
-
-    public void setProductName(String productName) {this.productName = productName;}
-
     public String getProdDescription() {return prodDescription;}
-
-    public void setProdDescription(String prodDescription) {this.prodDescription = prodDescription;}
-
     public String getProdPrice() {return prodPrice;}
-
-    public void setProdPrice(String prodPrice) {this.prodPrice = prodPrice;}
 
     @Override
     public String toString() {

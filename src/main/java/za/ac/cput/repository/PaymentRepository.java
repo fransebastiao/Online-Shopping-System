@@ -7,6 +7,4 @@ import java.util.Set;
 
 @Repository
 public interface PaymentRepository extends JpaRepository<Payment, String> {
-    Set<Payment> getAll();
-
 }

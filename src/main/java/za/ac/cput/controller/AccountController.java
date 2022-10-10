@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.Set;
 
 @RestController
-@RequestMapping("online-shopping-system/account")
+@RequestMapping("online-shopping-system/account/")
 @Slf4j
 public class AccountController {
     private final AccountService accountService;

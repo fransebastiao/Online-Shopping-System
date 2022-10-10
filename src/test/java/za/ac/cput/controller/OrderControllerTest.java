@@ -16,6 +16,8 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Order;
+import za.ac.cput.domain.OrderDetails;
+import za.ac.cput.factory.OrderDetailsFactory;
 import za.ac.cput.factory.OrderFactory;
 import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,8 +39,9 @@ class OrderControllerTest {
     @BeforeEach
     void setUp() {
         assertNotNull(controller);
+        OrderDetails details = OrderDetailsFactory.createOrderDetails( 5, "R20","R100");
         this.order = OrderFactory.createOrder("1","18th of August, 2022",
-                "on the way" ,"Edvalter","cape", Integer.parseInt("087373999"));
+                "on the way" ,"Edvalter","cape", Integer.parseInt("087373999"), details);
         this.baseUrl = "http://localhost:" + this.port + "/online-shopping-system/order/";
     }
 

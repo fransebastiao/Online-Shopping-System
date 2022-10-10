@@ -8,8 +8,6 @@ Siphelele Nyathi 218334028
 
 import za.ac.cput.domain.UserRole;
 
-public interface UserRoleService extends IService<UserRole, String>
-{
-    boolean delete(String id);
+public interface UserRoleService extends IService<UserRole, String> {
 }
 

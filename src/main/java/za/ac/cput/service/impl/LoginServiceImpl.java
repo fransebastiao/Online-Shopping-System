@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 @Service
 public class LoginServiceImpl implements LoginService {
 
-@Autowired
-private final LoginRepository repository;
+    @Autowired
+    private final LoginRepository repository;
 
     public LoginServiceImpl(LoginRepository repository) {
         this.repository = repository;
@@ -29,14 +29,14 @@ private final LoginRepository repository;
     }
 
     @Override
-    public Login read(String s) {
-        return this.repository.findById(s).orElse(null);
+    public Login read(String id) {
+        return this.repository.findById(id).orElse(null);
     }
 
     @Override
-    public boolean delete(String s) {
-        if (this.repository.existsById(s)) {
-            this.repository.deleteById(s);
+    public boolean delete(String id) {
+        if (this.repository.existsById(id)) {
+            this.repository.deleteById(id);
             return true;
         }
         return false;
