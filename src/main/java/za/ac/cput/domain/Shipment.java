@@ -1,26 +1,28 @@
 package za.ac.cput.domain;
 /*
-* Online-Shopping-System
-* Tshepang Molefe
-* 216217717
-* 10/04/2022
+ * Online-Shopping-System
+ * Tshepang Molefe
+ * 216217717
+ * 10/04/2022
  */
 
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Entity
-public class Shipment
+public class Shipment implements Serializable
 {
     @Id
     @NotNull
-
+    @Column(name = "shipment_id")
     private String shipmentId;
     @NotNull
-    @Embedded
+    //@Embedded
     private int shipmentCost;
     private String customerName;
     private String deliveryAddress;
@@ -49,67 +51,27 @@ public class Shipment
     public String getShipmentId() {
         return shipmentId;
     }
-
-    public void setShipmentId(String shipmentId) {
-        this.shipmentId = shipmentId;
-    }
-
     public int getShipmentCost() {
         return shipmentCost;
     }
-
-    public void setShipmentCost(int shipmentCost) {
-        this.shipmentCost = shipmentCost;
-    }
-
     public String getCustomerName() {
         return customerName;
     }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
     public String getDeliveryAddress() {
         return deliveryAddress;
     }
-
-    public void setDeliveryAddress(String deliveryAddress)
-    {
-        this.deliveryAddress = deliveryAddress;
-    }
-
     public int getContactNumber()
     {
         return contactNumber;
     }
-
-    public void setContactNumber(int contactNumber) {
-        this.contactNumber = contactNumber;
-    }
-
     public int getTrackingNumber() {
         return trackingNumber;
     }
-
-    public void setTrackingNumber(int trackingNumber) {
-        this.trackingNumber = trackingNumber;
-    }
-
     public String getShipmentDate() {
         return shipmentDate;
     }
-
-    public void setShipmentDate(String shipmentDate) {
-        this.shipmentDate = shipmentDate;
-    }
-
     public String getShipmentTime() {
         return shipmentTime;
-    }
-
-    public void setShipmentTime(String shipmentTime) {
-        this.shipmentTime = shipmentTime;
     }
 
     @Override

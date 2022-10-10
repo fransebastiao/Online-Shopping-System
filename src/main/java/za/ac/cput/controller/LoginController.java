@@ -15,7 +15,7 @@ import java.util.Set;
 
 
 @RestController
-@RequestMapping("online-shopping-system/account")
+@RequestMapping("online-shopping-system/login")
 @Slf4j
 public class LoginController {
     private final LoginService loginService;

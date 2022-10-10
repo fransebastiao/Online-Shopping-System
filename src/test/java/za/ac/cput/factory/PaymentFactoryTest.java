@@ -10,6 +10,7 @@ class PaymentFactoryTest {
     @Test
     public void test(){
         Payment payment = PaymentFactory.CreatePayment("FirstPayment", "February", " TwelveThirty", "Three thousand rand", "FirstPayment, February, TwelveThirty, three Thousand Rand");
+        System.out.println(payment);
     }
 
 }

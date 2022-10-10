@@ -39,7 +39,7 @@ class ShoppingCartControllerTest
     void setUp()
     {
         assertNotNull(controller);
-        this.shoppingCart = ShoppingCartFactory.build("6421081", 56554,45651,"24/Aus/2022");
+        this.shoppingCart = ShoppingCartFactory.createShoppingCart("6421081", "56554",45651,"24/Aus/2022");
         this.baseUrl = "http://localhost:" + this.port + "/schoolmanagement/ShoppingCart/";
     }
     @Order(1)

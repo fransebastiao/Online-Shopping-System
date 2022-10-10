@@ -7,18 +7,24 @@ Siphelele Nyathi 218334028
  */
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 @Entity
-@Table(name = "user_records")
-public class User {
+@Table(name = "users")
+public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private String userId;
-    @Column @NotNull private String name;
-    @Column @NotNull private String email;
-    @Column @NotNull private String password;
-    @Column @NotNull private String address;
+    @Column (name = "full_name")
+    @NotNull private String name;
+    @Column (name = "email")
+    @NotNull private String email;
+    @Column (name = "password")
+    @NotNull private String password;
+    @Column (name = "address")
+    @NotNull private String address;
 
 
     protected User(){}

@@ -29,14 +29,14 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account read(String s) {
-        return this.repository.findById(s).orElse(null);
+    public Account read(String id) {
+        return this.repository.findById(id).orElse(null);
     }
 
     @Override
-    public boolean delete(String s) {
-        if (this.repository.existsById(s)) {
-            this.repository.deleteById(s);
+    public boolean delete(String id) {
+        if (this.repository.existsById(id)) {
+            this.repository.deleteById(id);
             return true;
         }
         return false;

@@ -5,14 +5,18 @@ Author: Franciel Danilo de Carvalho Sebastiao
 Student Number: 219466912
 Date: O6/08/2022
  */
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class Region {
-    @Id String regionId;
+public class Region implements Serializable {
+    @Id
+    @Column(name = "region_id" )
+    String regionId;
     @NotNull int streetNumber;
     @NotNull String streetName;
     @NotNull int zipCode;

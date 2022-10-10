@@ -19,11 +19,13 @@ class UserRoleFactoryTest {
         assertNotNull(role);
 
         System.out.println(role.toString());
+    }
 
+    @Test
+    void buildWithNull(){
         //return null because no role type is entered
         UserRole role1 = UserRoleFactory.createRole("");
-        assertNotNull(role);
-
+        assertNotNull(role1);
         System.out.println(role1.toString());
     }
 }

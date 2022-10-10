@@ -8,14 +8,15 @@ package za.ac.cput.factory;
 */
 
 import za.ac.cput.domain.Order;
+import za.ac.cput.domain.OrderDetails;
 import za.ac.cput.util.GenericHelper;
 
 
 public class OrderFactory
 {
 
-   public static Order createOrder(String orderID, String orderDate, String orderStatus, String customerName
-            , String deliveryAddress, int contactNumber)
+    public static Order createOrder(String orderID, String orderDate, String orderStatus, String customerName
+            , String deliveryAddress, int contactNumber, OrderDetails details)
     {
 
         //Validation
@@ -32,6 +33,7 @@ public class OrderFactory
                 .setCustomerName(customerName)
                 .setDeliveryAddress(deliveryAddress)
                 .setContactNumber(String.valueOf(contactNumber))
+                .setDetails(details)
                 .build();
 
     }

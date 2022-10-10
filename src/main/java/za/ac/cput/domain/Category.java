@@ -6,6 +6,7 @@
 
 package za.ac.cput.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -15,13 +16,14 @@ import java.io.Serializable;
 public class Category implements Serializable {
     @NotNull
     @Id
+    @Column(name = "category_id")
     private String categoryId;
     @NotNull
     private String categoryName;
     @NotNull
     private String categoryDescription;
 
-    public Category() {
+    private Category() {
     }
 
     private Category(Builder builder) {
@@ -31,16 +33,8 @@ public class Category implements Serializable {
     }
 
     public String getCategoryId() {return categoryId;}
-
-    public void setCategoryId(String categoryId) {this.categoryId = categoryId;}
-
     public String getCategoryName() {return categoryName;}
-
-    public void setCategoryName(String categoryName) {this.categoryName = categoryName;}
-
     public String getCategoryDescription() {return categoryDescription;}
-
-    public void setCategoryDescription(String categoryDescription) {this.categoryDescription = categoryDescription;}
 
     @Override
     public String toString() {

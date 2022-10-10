@@ -9,8 +9,6 @@ import za.ac.cput.domain.ShoppingCart;
 import java.util.List;
 import java.util.Set;
 
-public interface ShoppingCartServise extends IService<ShoppingCart, String>
-{
-    Set<ShoppingCart> findAll();
-    boolean deleteById(String id);
+public interface ShoppingCartServise extends IService<ShoppingCart, String> {
+
 }

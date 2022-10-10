@@ -10,5 +10,4 @@ import za.ac.cput.domain.Order;
 import za.ac.cput.service.IService;
 
 public interface OrderService extends IService<Order, String> {
-    boolean delete(String s);
 }

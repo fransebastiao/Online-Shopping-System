@@ -29,7 +29,7 @@ class LoginControllerTest {
     @BeforeEach
     void setUp() {
         assertNotNull(controller);
-        this.login = LoginFactory.createLogin("test login", " user45", " user45@gmail.com", " User1234!");
+        this.login = LoginFactory.createLogin(" user45@gmail.com", " User1234!");
         this.baseUrl = "http://localhost:" + this.port + "/online-shopping-system/account/";
     }
     @Order(1)
@@ -49,7 +49,7 @@ class LoginControllerTest {
     @Order(2)
     @Test
     void delete() {
-        String url = baseUrl + "delete/" + this.login.getLoginid();
+        String url = baseUrl + "delete/" + this.login.getUserEmail();
         System.out.println(url);
         this.restTemplate.delete(url);
 
@@ -57,7 +57,7 @@ class LoginControllerTest {
     @Order(3)
     @Test
     void read() {
-        String url = baseUrl + "read/" + this.login.getLoginid();
+        String url = baseUrl + "read/" + this.login.getUserEmail();
         System.out.println(url);
         ResponseEntity<Login> response = this.restTemplate.getForEntity(url, Login.class);
         System.out.println(response);
@@ -79,4 +79,4 @@ class LoginControllerTest {
                 () -> assertEquals(0, response.getBody().length)
         );
     }
-    }
+}

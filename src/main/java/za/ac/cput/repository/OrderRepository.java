@@ -14,6 +14,4 @@ import java.util.Optional;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, String> {
-    Optional<Order> findByID(String ID);
-
 }

@@ -12,10 +12,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.ShoppingCart;
 import za.ac.cput.service.ShoppingCartServise;
+
 import java.util.Set;
 
 @RestController
-@RequestMapping("Online-Shopping-System/ ShoppingCart")
+@RequestMapping("online-shopping-system/shoppingCart")
 @Slf4j
 
 public class ShoppingCartController
@@ -30,7 +31,7 @@ public class ShoppingCartController
 
     }
     @PostMapping("save")
-        public ResponseEntity<ShoppingCart> save(@RequestBody ShoppingCart shoppingCart){
+    public ResponseEntity<ShoppingCart> save(@RequestBody ShoppingCart shoppingCart){
         ShoppingCart save = this.shoppingCartService.save(shoppingCart);
         return ResponseEntity.ok(save);
     }
@@ -38,12 +39,12 @@ public class ShoppingCartController
     public ResponseEntity <ShoppingCart> delete (@PathVariable String id  )
     {
         log.info("Read request: {}", id);
-        this.shoppingCartService.deleteById(id);
+        this.shoppingCartService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("read/{id}/{quality}, {dateAdded}")
-        public ResponseEntity<ShoppingCart> read (@PathVariable String id)
+    public ResponseEntity<ShoppingCart> read (@PathVariable String id)
     {
         log.info("Read request: {}", id);
         ShoppingCart shoppingCart = this.shoppingCartService.read(id);

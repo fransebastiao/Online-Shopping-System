@@ -1,9 +1,9 @@
 /*
-* shoppingCart
-* Online-Shopping-System
-* 216217717
-* 12/08/2022
-* */
+ * shoppingCart
+ * Online-Shopping-System
+ * 216217717
+ * 12/08/2022
+ * */
 package za.ac.cput.service.impl;
 
 
@@ -12,11 +12,11 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.domain.ShoppingCart;
 import za.ac.cput.repository.ShoppingCartRepository;
 import za.ac.cput.service.ShoppingCartServise;
+
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-
 public class ShoppingCartServiseImpl implements ShoppingCartServise
 {
     private final ShoppingCartRepository repository;
@@ -54,16 +54,7 @@ public class ShoppingCartServiseImpl implements ShoppingCartServise
             this.repository.deleteById(id);
             return true;
         }
-
         return false;
     }
-
-    @Override
-    public boolean deleteById(String id)
-    {
-        return false;
-    }
-
-
 }
 

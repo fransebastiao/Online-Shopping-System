@@ -12,5 +12,4 @@ import java.util.List;
 
 @Repository
 public interface RegionRepository extends JpaRepository<Region, String>{
-    List<Region> getAll();
 }

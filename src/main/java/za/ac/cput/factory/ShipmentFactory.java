@@ -34,18 +34,4 @@ public class ShipmentFactory
                 setShipmentTime(shipmentTime)
                 .build();
     }
-
-    public static Shipment build(String shipmentId, int shipmentCost,
-                                 String customerName, String deliveryAddress, int contactNumber, int trackingNumber,
-                                 String shipmentDate, String shipmentTime) {
-        return new Shipment.Builder().setShipmentId(shipmentId).
-                setShipmentCost(shipmentCost).
-                setCustomerName(customerName).
-                setDeliveryAddress(deliveryAddress).
-                setContactNumber(contactNumber).
-                setTrackingNumber(trackingNumber).
-                setShipmentDate(shipmentDate).
-                setShipmentTime(shipmentTime)
-                .build();
-    }
 }

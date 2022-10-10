@@ -14,7 +14,5 @@ import za.ac.cput.domain.Shipment;
 import java.util.Set;
 
 @Repository
-public interface ShipmentRepository extends JpaRepository<Shipment, String>
-{
-    Set<Shipment> getAll();
+public interface ShipmentRepository extends JpaRepository<Shipment, String> {
 }

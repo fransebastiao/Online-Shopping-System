@@ -1,68 +1,58 @@
 /*
-* Shipment Test
-* Online=Shopping-System
-* 216217717
-* 12/08/2022
-* */
+ * Shipment Test
+ * Online=Shopping-System
+ * 216217717
+ * 12/08/2022
+ * */
 package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Shipment;
 import za.ac.cput.factory.ShipmentFactory;
 
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-class ShipmentServiceImplTest
-
-{
-    //@Autowired
-    //private static  Shipment shipment;
-    Shipment shipment = ShipmentFactory.createShipment("216547", 213, "Tshepang", "", 5651, 2005,"12/08/2022", "12:00 pm");
+@SpringBootTest
+class ShipmentServiceImplTest {
+    private static final Shipment shipment1 = ShipmentFactory.createShipment("216547", 213, "Tshepang", "13 Jon Ave", 5651, 2005,"12/08/2022", "12:00 pm");
 
     @Autowired
-    private ShipmentServiceImpl shipmentServiceImpl;
+    private ShipmentServiceImpl service;
 
-    @Order(1)
     @Test
-    void save()
+    void a_save()
     {
-        Shipment saved = this.shipmentServiceImpl.save(this.shipment);
-        assertEquals(this.shipment, saved);
+        System.out.println("Shipment Details:");
+        Shipment saved = this.service.save(shipment1);
+        assertNotNull(saved);
         System.out.println(saved);
     }
-    @Order(2)
+
     @Test
-    void read()
+    void b_read()
     {
-
-        Shipment optionalShipment = shipmentServiceImpl.read(shipment.getShipmentId());
-
-        assertEquals(shipment.getShipmentId(), optionalShipment.getShipmentId());
-
+        Shipment optionalShipment = service.read(shipment1.getShipmentId());
+        assertEquals(shipment1.getShipmentId(), optionalShipment.getShipmentId());
         System.out.println("Show Shipments: " + optionalShipment);
     }
-    @Order(4)
+
     @Test
-    void delete()
+    void d_delete()
     {
-
-        boolean isDeleted = shipmentServiceImpl.delete(shipment.getShipmentId());
-        Set<Shipment> shipmentSet = shipmentServiceImpl.findAll();
-
-        assertEquals(0, shipmentSet.size());
+        boolean isDeleted = service.delete(shipment1.getShipmentId());
+        assertTrue(isDeleted);
         System.out.println("Deleted Cart: " + isDeleted);
     }
-    @Order(3)
+
     @Test
-    void findAll()
+    void c_findAll()
     {
-        Set<Shipment> shipmentList = this.shipmentServiceImpl.findAll();
-        assertEquals(1, shipmentList.size());
-        System.out.println(shipmentList);
+        System.out.println("Show all shipments");
+        System.out.println(service.findAll());
     }
 
 }

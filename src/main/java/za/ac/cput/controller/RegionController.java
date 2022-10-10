@@ -34,7 +34,7 @@ public class RegionController {
     }
 
     @GetMapping("read/{id}")
-    public ResponseEntity<Region> readId(@PathVariable String id){
+    public ResponseEntity<Region> read(@PathVariable String id){
         log.info("Read request: {}", id);
         Region region = this.regionService.read(id);
         return ResponseEntity.ok(region);

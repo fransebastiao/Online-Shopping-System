@@ -7,8 +7,7 @@ Siphelele Nyathi 218334028
  */
 import za.ac.cput.domain.User;
 
-public interface UserService extends IService<User, String>
-{
-    boolean delete(String id);
+public interface UserService extends IService<User, String> {
+
 }
 

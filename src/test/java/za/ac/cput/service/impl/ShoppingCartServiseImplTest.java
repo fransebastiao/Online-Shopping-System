@@ -1,67 +1,50 @@
 /*
-* shoppingCart Test
-*  Online-shopping-System
-* 216217717
-* 12-08-2022
-* */
+ * shoppingCart Test
+ *  Online-shopping-System
+ * 216217717
+ * 12-08-2022
+ * */
 package za.ac.cput.service.impl;
 
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import za.ac.cput.domain.Shipment;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.ShoppingCart;
-import za.ac.cput.factory.ShipmentFactory;
 import za.ac.cput.factory.ShoppingCartFactory;
-
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ShoppingCartServiseImplTest
-{
-
-    ShoppingCart shoppingCart = ShoppingCartFactory.createShoppingCart("25008", 258,369,"12/8/2022");
+@SpringBootTest
+class ShoppingCartServiseImplTest {
+    private static final ShoppingCart shoppingCart1 = ShoppingCartFactory.createShoppingCart("01", "SN458",2,"20/12/2021");
 
     @Autowired
-    private ShoppingCartServiseImpl shoppingCartServiseImpl;
+    private ShoppingCartServiseImpl shoppingCartServiceImpl;
 
-    @Order(1)
     @Test
-    void save()
-    {
-        ShoppingCart saved = this.shoppingCartServiseImpl.save(this.shoppingCart);
-        assertEquals(this.shoppingCart, saved);
+    void a_save() {
+        ShoppingCart saved = this.shoppingCartServiceImpl.save(this.shoppingCart1);
+        assertNotNull(saved);
         System.out.println(saved);
     }
-    @Order(2)
+
     @Test
-    void read()
-    {
-
-        ShoppingCart optionalCart = shoppingCartServiseImpl.read(shoppingCart.getCartId());
-
-        assertEquals(shoppingCart.getCartId(), optionalCart.getCartId());
-
-        System.out.println("Show Cart: " + optionalCart);
+    void b_read() {
+        ShoppingCart read = shoppingCartServiceImpl.read(shoppingCart1.getCartId());
+        assertEquals(read.getCartId(), shoppingCart1.getCartId());
+        System.out.println("Show Cart: " + read);
     }
-    @Order(4)
+
     @Test
-    void delete()
-    {
-
-        boolean isDeleted = shoppingCartServiseImpl.delete(shoppingCart.getCartId());
-        Set<ShoppingCart> cartSet = shoppingCartServiseImpl.findAll();
-
-        assertEquals(0, cartSet.size());
+    void d_delete() {
+        boolean isDeleted = shoppingCartServiceImpl.delete(shoppingCart1.getCartId());
+        assertTrue(isDeleted);
         System.out.println("Deleted Cart: " + isDeleted);
     }
-    @Order(3)
+
     @Test
-    void findAll()
-    {
-        Set<ShoppingCart> shoppingCartList = this.shoppingCartServiseImpl.findAll();
-        assertEquals(1, shoppingCartList.size());
-        System.out.println(shoppingCartList);
+    void c_findAll() {
+        System.out.println("Show all:");
+        System.out.println(shoppingCartServiceImpl.findAll());
     }
 }
