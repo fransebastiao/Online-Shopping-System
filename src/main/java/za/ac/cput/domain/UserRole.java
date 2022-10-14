@@ -7,11 +7,12 @@ Siphelele Nyathi 218334028
  */
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "roles")
-public class UserRole {
+public class UserRole implements Serializable {
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
