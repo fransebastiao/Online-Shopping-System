@@ -47,7 +47,7 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("List all")
+    @GetMapping("ListAll")
     public ResponseEntity<Set<User>> findAll(){
         Set<User> userSet = this.userService.findAll();
         return ResponseEntity.ok(userSet);
