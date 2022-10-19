@@ -45,6 +45,18 @@ public class SecurityConfig {
                     auth.antMatchers(HttpMethod.DELETE,"/delete/{user}").hasRole("ADMIN");
                     auth.antMatchers(HttpMethod.GET,"/read/{id}").hasRole("USER");
                     auth.antMatchers(HttpMethod.GET,"/ListAll").hasRole("USER");
+
+                    //Path matcher For the Category System
+                    auth.antMatchers(HttpMethod.POST, "/**//save").hasRole("ADMIN");
+                    auth.antMatchers(HttpMethod.DELETE, "/**/category/delete/{id}").hasRole("ADMIN");
+                    auth.antMatchers(HttpMethod.GET, "/**/category/read/{id}").hasAnyRole("USER","ADMIN");
+                    auth.antMatchers(HttpMethod.GET, "/**/category/findall").hasAnyRole("USER","ADMIN");
+
+                    //Path matcher For the Product System
+                    auth.antMatchers(HttpMethod.POST, "/**//save").hasRole("ADMIN");
+                    auth.antMatchers(HttpMethod.DELETE, "/**/product/delete/{id}").hasRole("ADMIN");
+                    auth.antMatchers(HttpMethod.GET, "/**/product/read/{id}").hasAnyRole("USER","ADMIN");
+                    auth.antMatchers(HttpMethod.GET, "/**/product/findall").hasAnyRole("USER","ADMIN");
                 })
                 .httpBasic(Customizer.withDefaults())
                 .build();
