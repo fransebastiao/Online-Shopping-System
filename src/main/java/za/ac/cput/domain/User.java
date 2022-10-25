@@ -1,36 +1,34 @@
-package za.ac.cput.domain;
 /*
 User.java
 This class implement builder pattern for User
 Siphelele Nyathi 218334028
-21.08.2022
+//25.10.2022
  */
-import javax.persistence.*;
+package za.ac.cput.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
-@Entity
-@Table(name = "users")
-public class User implements Serializable {
 
+@Entity
+public class User implements Serializable {
+    @NotNull
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private String userId;
-    @Column (name = "full_name")
-    @NotNull private String name;
-    @Column (name = "email")
-    @NotNull private String email;
-    @Column (name = "password")
-    @NotNull private String password;
-    @Column (name = "address")
-    @NotNull private String address;
-
-
-    protected User(){}
+    @NotNull
+    private String name;
+    @NotNull
+    private String email;
+    @NotNull
+    private String password;
+    @NotNull
+    private String address;
 
     private User(Builder builder) {
-
         this.userId = builder.userId;
         this.name = builder.name;
         this.email = builder.email;
@@ -38,25 +36,20 @@ public class User implements Serializable {
         this.address = builder.address;
     }
 
-    public String getUserId() {
-        return userId;
+
+    public User() {
     }
-    public String getName() {
-        return name;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public String getPassword() {
-        return password;
-    }
-    public String getAddress() {
-        return address;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(userId, user.userId) && Objects.equals(name, user.name) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(address, user.address);
     }
 
     @Override
     public String toString() {
-
         return "User{" +
                 "userId='" + userId + '\'' +
                 ", name='" + name + '\'' +
@@ -66,10 +59,37 @@ public class User implements Serializable {
                 '}';
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, name, email, password, address);
+    }
 
-    public static class Builder{
+    public String getUserId() {
+        return userId;
+    }
 
-        private String userId, name, email, password, address;
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public static class Builder {
+        private String userId;
+        private String name;
+        private String email;
+        private String password;
+        private String address;
 
         public Builder setUserId(String userId) {
             this.userId = userId;
@@ -96,8 +116,7 @@ public class User implements Serializable {
             return this;
         }
 
-        public Builder copy(User user){
-
+        public Builder copy(User user) {
             this.userId = user.userId;
             this.name = user.name;
             this.email = user.email;
@@ -107,27 +126,9 @@ public class User implements Serializable {
             return this;
         }
 
-        public User build(){
+        public User build() {
             return new User(this);
         }
-    }
-
-    public boolean equals(Object o) {
-
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User that = (User) o;
-        return userId.equals(that.userId) &&
-                name.equals(that.name) &&
-                email.equals(that.email) &&
-                password.equals(that.password) &&
-                address.equals(that.address);
-    }
-
-    @Override
-    public int hashCode()
-    {
-        return Objects.hash(userId, name, email, password, address);
     }
 }
 

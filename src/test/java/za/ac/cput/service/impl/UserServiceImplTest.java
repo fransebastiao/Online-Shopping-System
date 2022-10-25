@@ -3,36 +3,38 @@ package za.ac.cput.service.impl;
 UserServiceImplTest.java
 JUnit tests  for User Services Implementation
 Siphelele Nyathi 218334028
-14.08.2022
+//25.10.2022
  */
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.core.annotation.Order;
 import za.ac.cput.domain.User;
 import za.ac.cput.factory.UserFactory;
 import za.ac.cput.service.UserService;
 import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@SpringBootTest
 class UserServiceImplTest {
-
-    private static final User user1 = UserFactory.createUser("Siphelele Nyathi", "218334028@mycput.ac.za",
-            "SN218330428", "Milnerton");
-
+    private static final User user1 = UserFactory.createUser("98777", "Siphelele", "218334028@mycput.ac.za", "SN218330428", "Milnerton");
+    private static final User user2 = UserFactory.createUser("93347", "Sharfaa", "257686664@mycput.ac.za", "FYH5758686", "Edgemead");
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @Test
     void a_save()
     {
-        User newUser = userService.save(user1);
-        assertEquals(user1, newUser);
-        System.out.println("Saved User: " + newUser);
+        System.out.println("Created: ");
+        User created1 = userService.save(user1);
+        assertNotNull(created1);
+        System.out.println(created1);
+
+        User created2 = userService.save(user2);
+        assertNotNull(created2);
+        System.out.println(created2);
     }
 
     @Test
@@ -44,7 +46,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void d_delete()
+    void f_delete()
     {
         boolean isDeleted = userService.delete(user1.getUserId());
         assertTrue(isDeleted);
@@ -52,7 +54,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void c_findAll()
+    void d_findAll()
     {
         Set<User> userSet = userService.findAll();
         System.out.println(userSet);

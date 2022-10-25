@@ -1,27 +1,27 @@
-package za.ac.cput.service.impl;
 /*
 Online Shopping System
 Lihle Langa 217181147
+//25.10.2022
  */
+package za.ac.cput.service.impl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Payment;
+import za.ac.cput.repository.IPaymentRepository;
 import za.ac.cput.service.PaymentService;
-import za.ac.cput.repository.PaymentRepository;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
-
 @Service
 public class PaymentServiceImpl implements PaymentService {
-    private final PaymentRepository repository;
+    private final IPaymentRepository repository;
 
     @Autowired
-    public PaymentServiceImpl(PaymentRepository repository) {
+    public PaymentServiceImpl(IPaymentRepository repository) {
         this.repository = repository;
     }
-
 
     @Override
     public Payment save(Payment payment) {
@@ -34,11 +34,6 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public Set<Payment> findAll() {
-        return this.repository.findAll().stream().collect(Collectors.toSet());
-    }
-
-    @Override
     public boolean delete(String id) {
         if (this.repository.existsById(id)) {
             this.repository.deleteById(id);
@@ -46,4 +41,10 @@ public class PaymentServiceImpl implements PaymentService {
         }
         return false;
     }
+
+    @Override
+    public Set<Payment> findAll() {
+        return this.repository.findAll().stream().collect(Collectors.toSet());
+    }
 }
+

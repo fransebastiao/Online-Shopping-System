@@ -12,5 +12,4 @@ import za.ac.cput.domain.Product;
 
 @Repository
 public interface IProductRepository extends JpaRepository<Product, String> {
-
 }

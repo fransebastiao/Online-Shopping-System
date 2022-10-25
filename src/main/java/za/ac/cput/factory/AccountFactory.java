@@ -1,24 +1,28 @@
-package za.ac.cput.factory;
-import za.ac.cput.domain.Account;
-import za.ac.cput.util.GenericHelper;
 /*
  Online-Shopping-System
  Factory for the Account class
  Author: Franciel Danilo de Carvalho Sebastiao (219466912)
- Date: 7 April 2022
+ //25.10.2022
 */
+package za.ac.cput.factory;
 
-public abstract class AccountFactory {
+import za.ac.cput.domain.Account;
 
-    public static Account saveAccount(String openDate, String closeDate){
-        if(GenericHelper.isNullorEmpty(openDate) || GenericHelper.isNullorEmpty(closeDate))
-            return null;
+import za.ac.cput.util.GenericHelper;
 
-        String accountId = GenericHelper.generateId();
+public class AccountFactory {
+
+    public static Account createAccount(String accountId, String openDate, String closeDate){
+        GenericHelper.checkStringParam("accountId", accountId);
+        GenericHelper.checkStringParam("openDate", openDate);
+        GenericHelper.checkStringParam("closeDate", closeDate);
 
         return new Account.Builder().setAccountId(accountId)
                 .setOpenDate(openDate)
                 .setCloseDate(closeDate)
                 .build();
+
+
     }
+
 }

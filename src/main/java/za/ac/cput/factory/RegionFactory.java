@@ -1,25 +1,27 @@
-package za.ac.cput.factory;
-import za.ac.cput.domain.Region;
-import za.ac.cput.util.GenericHelper;
 /*
  Online-Shopping-System
  Factory for the Account class
  Author: Franciel Danilo de Carvalho Sebastiao (219466912)
- Date: 7 April 2022
+ //25.10.2022
 */
+package za.ac.cput.factory;
+
+import za.ac.cput.domain.Region;
+import za.ac.cput.util.GenericHelper;
 
 public class RegionFactory {
-    public static Region saveRegion(int streetNumber, String streetName, int zipCode){
-        if(GenericHelper.isNullorEmpty(String.valueOf(streetNumber)) || GenericHelper.isNullorEmpty(streetName)
-                || GenericHelper.isNullorEmpty(String.valueOf(zipCode)))
-            return null;
 
-        String regionId = GenericHelper.generateId();
+    public static Region createRegion(String regionId, int streetNumber, String streetName, int zipCode){
+        GenericHelper.checkStringParam("regionId", regionId);
+        GenericHelper.checkStringParam("streetName", streetName);
 
-        return new Region.Builder().setRegionId(regionId)
+        return new Region.Builder()
+                .setRegionId(regionId)
                 .setStreetNumber(streetNumber)
                 .setStreetName(streetName)
                 .setZipCode(zipCode)
                 .build();
+
+
     }
 }

@@ -1,31 +1,31 @@
-package za.ac.cput.factory;
 /*
 UserFactory.java
 Factory class for User
 Author: Siphelele Nyathi 218334028
-Date: O4.04.2022
+//25.10.2022
  */
+package za.ac.cput.factory;
+
 import za.ac.cput.domain.User;
 import za.ac.cput.util.GenericHelper;
 
 public class UserFactory {
 
-    public static User createUser(String name, String email, String password, String address) {
+    public static User createUser(String userId,String name, String email, String password, String address){
+        GenericHelper.checkStringParam("userId", userId);
+        GenericHelper.checkStringParam("email", email);
+        GenericHelper.checkStringParam("name", name);
+        GenericHelper.checkStringParam("password", password);
+        GenericHelper.checkStringParam("address", address);
 
-        if (GenericHelper.emailMatches(email, "^(.+)@(\\\\S+)$"))
-            return null;
-
-        if(GenericHelper.isNullorEmpty(name) ||
-                GenericHelper.isNullorEmpty(password) ||
-                GenericHelper.isNullorEmpty(address)
-        )
-            return null;
-
-        return new User.Builder().setUserId(GenericHelper.generateId())
-                .setName(name)
+        return new User.Builder()
+                .setUserId(userId)
                 .setEmail(email)
-                .setAddress(address)
+                .setName(name)
                 .setPassword(password)
+                .setAddress(address)
                 .build();
+
+
     }
 }

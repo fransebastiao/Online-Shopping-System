@@ -1,3 +1,4 @@
+//25.10.2022
 package za.ac.cput.controller;
 
 import org.junit.jupiter.api.*;
@@ -31,7 +32,7 @@ class ProductControllerTest {
     @BeforeEach
     void setUp() {
         assertNotNull(controller);
-        this.product = ProductFactory.createProduct("Hammer","Construction tool","R300");
+        this.product = ProductFactory.createProduct("101","Hammer","Construction tool","R300");
         this.baseUrl = "http://localhost:" + this.port + "/online-shopping-system/product/";
     }
 
@@ -41,6 +42,7 @@ class ProductControllerTest {
         String url = baseUrl + "save";
         System.out.println(url);
         ResponseEntity<Product> response = this.restTemplate
+                .withBasicAuth("admin-user", "65ff7492d30")
                 .postForEntity(url, this.product, Product.class);
         System.out.println(response);
         assertAll(
@@ -62,7 +64,9 @@ class ProductControllerTest {
     void readId() {
         String url = baseUrl + "read/" + this.product.getProductID();
         System.out.println(url);
-        ResponseEntity<Product> response = this.restTemplate.getForEntity(url, Product.class);
+        ResponseEntity<Product> response = this.restTemplate
+                .withBasicAuth("admin-user", "65ff7492d30")
+                .getForEntity(url, Product.class);
         System.out.println(response);
         assertAll(
                 ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
@@ -76,11 +80,13 @@ class ProductControllerTest {
         String url = baseUrl + "all";
         System.out.println(url);
         ResponseEntity<Product []> response =
-                this.restTemplate.getForEntity(url, Product[].class);
+                this.restTemplate
+                        .withBasicAuth("admin-user", "65ff7492d30")
+                        .getForEntity(url, Product[].class);
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                () -> assertEquals(0, response.getBody().length)
+                () -> assertEquals(7, response.getBody().length)
         );
     }
 }

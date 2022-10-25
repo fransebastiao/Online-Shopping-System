@@ -1,3 +1,4 @@
+//25.10.2022
 package za.ac.cput.controller;
 
 import org.junit.jupiter.api.*;
@@ -7,35 +8,41 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.test.context.support.WithMockUser;
 import za.ac.cput.domain.Account;
 import za.ac.cput.factory.AccountFactory;
+
 import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class AccountControllerTest {
+class  AccountControllerTest {
+
     @LocalServerPort
     private int port;
 
-    @Autowired private AccountController controller;
+    @Autowired
+    private AccountController controller;
     @Autowired private TestRestTemplate restTemplate;
 
     private Account account;
     private String baseUrl;
 
     @BeforeEach
-    void setUp(){
-        this.account = AccountFactory.saveAccount("1st of July, 2021","1st of July, 2026");
+    void setUp() {
+        assertNotNull(controller);
+        this.account = AccountFactory.createAccount("102","11/02/2022","11/12/2022");
         this.baseUrl = "http://localhost:" + this.port + "/online-shopping-system/account/";
     }
 
+    @Order(1)
     @Test
-    void a_save(){
+    void save() {
         String url = baseUrl + "save";
         System.out.println(url);
         ResponseEntity<Account> response = this.restTemplate
+                .withBasicAuth("admin-user", "65ff7492d30")
                 .postForEntity(url, this.account, Account.class);
         System.out.println(response);
         assertAll(
@@ -44,11 +51,22 @@ class AccountControllerTest {
         );
     }
 
+    @Order(3)
     @Test
-    void b_read(){
+    void delete() {
+        String url = baseUrl + "delete/" + this.account.getAccountId();
+        System.out.println(url);
+        this.restTemplate.delete(url);
+    }
+
+    @Order(2)
+    @Test
+    void readId() {
         String url = baseUrl + "read/" + this.account.getAccountId();
         System.out.println(url);
-        ResponseEntity<Account> response = this.restTemplate.getForEntity(url, Account.class);
+        ResponseEntity<Account> response = this.restTemplate
+                .withBasicAuth("admin-user", "65ff7492d30")
+                .getForEntity(url, Account.class);
         System.out.println(response);
         assertAll(
                 ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
@@ -56,23 +74,19 @@ class AccountControllerTest {
         );
     }
 
+    @Order(4)
     @Test
-    void d_delete(){
-        String url = baseUrl + "delete/" + this.account.getAccountId();
-        System.out.println(url);
-        this.restTemplate.delete(url);
-    }
-
-    @Test
-    void c_findAll(){
+    void findAll() {
         String url = baseUrl + "all";
         System.out.println(url);
         ResponseEntity<Account []> response =
-                this.restTemplate.getForEntity(url, Account[].class);
+                this.restTemplate
+                        .withBasicAuth("admin-user", "65ff7492d30")
+                        .getForEntity(url, Account[].class);
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                () -> assertEquals(0, response.getBody().length == 0)
+                () -> assertEquals(1, response.getBody().length)
         );
     }
 }

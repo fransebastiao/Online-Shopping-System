@@ -2,6 +2,7 @@
  * CategoryServiceImplTest.java
  * Service Implementation Test class for Category
  * Author: Sharfaa Sedick Anthony 220041571
+ * //25.10.2022
  * */
 
 package za.ac.cput.service.impl;
@@ -12,16 +13,18 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Category;
+import za.ac.cput.domain.Product;
 import za.ac.cput.factory.CategoryFactory;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
-class CategoryServiceImplTest {
-    private static final Category category1 = CategoryFactory.createCategory("Home", "Tissues");
-    private static final Category category2 = CategoryFactory.createCategory("Fashion", "Trousers");
-    private static final Category category3 = CategoryFactory.createCategory("Beauty", "Lipstick");
+public class CategoryServiceImplTest {
+    private static final Category category1 = CategoryFactory.createCategory("98765432","Home", "Tissues");
+    private static final Category category2 = CategoryFactory.createCategory("12345678","Fashion", "Trousers");
+    private static final Category category3 = CategoryFactory.createCategory("07651452","Beauty", "Lipstick");
     @Autowired
     private CategoryServiceImpl service;
 
@@ -44,8 +47,8 @@ class CategoryServiceImplTest {
     @Test
     void b_read() {
         Category read = service.read(category1.getCategoryId());
-        assertEquals(read.getCategoryId(), category1.getCategoryId());
-        System.out.println("Read: " + read);
+        assertEquals(category1.getCategoryId(), read.getCategoryId());
+        System.out.println("Show Shipments: " + read);
     }
 
     @Test

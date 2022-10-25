@@ -1,9 +1,4 @@
-/*
- * ProductServiceImpl.java
- * Service Implementation class for Product
- * Author: Sharfaa Sedick Anthony 220041571
- * */
-
+//25.10.2022
 package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +6,7 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Product;
 import za.ac.cput.repository.IProductRepository;
 import za.ac.cput.service.ProductService;
-import java.util.Optional;
+
 import java.util.Set;
 import java.util.stream.Collectors;
 

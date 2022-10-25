@@ -7,6 +7,8 @@
 package za.ac.cput.service;
 
 import za.ac.cput.domain.Category;
+import za.ac.cput.service.IService;
 
 public interface CategoryService extends IService<Category, String> {
+
 }

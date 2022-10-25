@@ -3,7 +3,7 @@ package za.ac.cput.service.impl;
 Account Service test
 Author: Franciel Danilo de Carvalho Sebastiao
 Student Number: 219466912
-Date: 13/08/2022
+//25.10.2022
  */
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
@@ -16,10 +16,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
-class RegionServiceImplTest {
-    private static final Region region1 = RegionFactory.saveRegion(432, "Voortrekker rd",7500);
-    private static final Region region2 = RegionFactory.saveRegion(10, "Strand st", 8000);
-    private static final Region region3 = RegionFactory.saveRegion(91, "Willow way", 7405);
+public class RegionServiceImplTest {
+    private static final Region region1 = RegionFactory.createRegion("432", 67, "Voortrekker Road", 7769 );
+    private static final Region region2 = RegionFactory.createRegion("968", 112, "Milner Road", 7945);
+    private static final Region region3 = RegionFactory.createRegion("234", 8, "Lansdowne Road", 7780);
 
     @Autowired
     private RegionServiceImpl service;

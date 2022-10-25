@@ -1,26 +1,28 @@
-package za.ac.cput.service.impl;
 /*
 UserServiceImpl.java
 This is an implementation for User Services
 Siphelele Nyathi 218334028
-14.08.2022
+//25.10.2022
  */
+package za.ac.cput.service.impl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.User;
-import za.ac.cput.repository.UserRepository;
+import za.ac.cput.repository.IUserRepository;
 import za.ac.cput.service.UserService;
+
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository repository;
+    private final IUserRepository repository;
 
     @Autowired
-    public UserServiceImpl(UserRepository repository){
-        this.repository =  repository;
+    public UserServiceImpl(IUserRepository repository) {
+        this.repository = repository;
     }
 
     @Override
@@ -29,23 +31,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User read(String id) {
-        return this.repository.findById(id).orElse(null);
+    public User read(String s) {
+        return this.repository.findById(s).orElse(null);
     }
 
     @Override
-    public boolean delete(String id) {
-        if(this.repository.existsById(id)){
-            this.repository.deleteById(id);
+    public boolean delete(String s) {
+        if (this.repository.existsById(s)) {
+            this.repository.deleteById(s);
             return true;
         }
         return false;
     }
+
 
     @Override
     public Set<User> findAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 }
-
-

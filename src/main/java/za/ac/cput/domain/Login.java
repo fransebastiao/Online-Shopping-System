@@ -3,10 +3,10 @@ package za.ac.cput.domain;
 Online Shopping System
 Lihle Langa 217181147
 entity for Login
+//25.10.2022
  */
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -14,31 +14,24 @@ import java.io.Serializable;
 
 @Entity
 public class Login implements Serializable {
-    @Id
     @NotNull
-    @Column(name = "user_email")
+    @Id
+    @Column(name = "login_id")
     private String userEmail;
+
     @NotNull
     private String userPassword;
 
-    protected Login(){
-    }
 
-    public Login (Builder builder){
-        /*this.loginId = builder.loginId;
-        this.userId = builder.userId;*/
+    private Login(Builder builder) {
         this.userEmail = builder.userEmail;
         this.userPassword = builder.userPassword;
-
     }
 
-   /* public String getLoginid() {
-        return loginId;
-    }
+    // This was a private constructor - Needs to be Public!
+    public Login() {
 
-    public String getUserId() {
-        return userId;
-    }*/
+    }
 
     public String getUserEmail() {
         return userEmail;
@@ -48,50 +41,35 @@ public class Login implements Serializable {
         return userPassword;
     }
 
-    public String toString(){
-        return "Login{"+ ", userEmail='" + userEmail + '\'' +
-                ", userPassword='" + userPassword +"}";
-
+    @Override
+    public String toString() {
+        return "Login{" + "userEmail='" + userEmail + '\'' + ", userPassword='" + userPassword + '\'' + '}';
     }
 
-    //my builder;
-
-    public static class Builder{
-        /*private String loginId;
-        private String userId;*/
+    public static class Builder {
         private String userEmail;
         private String userPassword;
 
 
-
-        /*public Builder setLoginid(String loginId){
-            this.loginId = loginId;
-            return this;
-        }
-        public Builder setUserid(String userId){
-        this.userId = userId;
-        return this;
-        }*/
-        public Builder setUseremail(String userEmail){
+        public Builder setUserEmail(String userEmail) {
             this.userEmail = userEmail;
             return this;
         }
-        public Builder setUserpassword(String userPassword){
+
+        public Builder setUserPassword(String userPassword) {
             this.userPassword = userPassword;
             return this;
         }
-        public Builder copy(Login login){
-        /*this.loginId = login.loginId;
-        this.userId = login.userId;*/
+
+
+        public Builder copy(Login login) {
             this.userEmail = login.userEmail;
-            this.userPassword = login.userPassword;
+            this.userPassword = login.getUserPassword();
             return this;
         }
-        public Login build(){
+
+        public Login build() {
             return new Login(this);
         }
     }
-
-
 }
-

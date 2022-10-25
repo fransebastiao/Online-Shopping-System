@@ -1,3 +1,8 @@
+/*
+ * CategoryController.java
+ * Author: Sharfaa Sedick Anthony 220041571
+ * //25.10.2022
+ * */
 package za.ac.cput.controller;
 
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.domain.Category;
 import za.ac.cput.factory.CategoryFactory;
 import za.ac.cput.service.CategoryService;
+
 import java.util.Set;
 
 @RestController
@@ -27,7 +33,7 @@ public class CategoryController {
         log.info("Save request: {}", category);
         Category validatedCategory;
         try {
-            validatedCategory = CategoryFactory.createCategory(category.getCategoryName(),category.getCategoryDescription());
+            validatedCategory = CategoryFactory.createCategory(category.getCategoryId(), category.getCategoryName(),category.getCategoryDescription());
         }catch(IllegalArgumentException e){
             log.info("Save request error: {}", e.getMessage());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
