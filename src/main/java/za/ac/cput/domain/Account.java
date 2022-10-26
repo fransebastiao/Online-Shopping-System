@@ -3,7 +3,7 @@ package za.ac.cput.domain;
 Account Domain
 Author: Franciel Danilo de Carvalho Sebastiao
 Student Number: 219466912
-Date: O6/08/2022
+//25.10.2022
  */
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,8 +15,13 @@ import java.util.Objects;
 @Entity
 public class Account implements Serializable {
     @Id
-    @Column(name = "account_id") String accountId;
-    @NotNull String openDate;
+    @Column(name = "account_id")
+    private String accountId;
+
+    @NotNull
+    private String openDate;
+
+    @NotNull
     private String closeDate;
 
     protected Account(){}
@@ -42,8 +47,7 @@ public class Account implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return Objects.equals(accountId, account.accountId) && Objects.equals(openDate, account.openDate)
-                && Objects.equals(closeDate, account.closeDate);
+        return Objects.equals(accountId, account.accountId) && Objects.equals(openDate, account.openDate) && Objects.equals(closeDate, account.closeDate);
     }
 
     @Override
@@ -92,4 +96,4 @@ public class Account implements Serializable {
                 '}';
     }
 }
-
+//test

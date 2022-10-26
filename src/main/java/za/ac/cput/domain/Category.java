@@ -2,6 +2,7 @@
  * Category.java
  * Entity for the Category
  * Author: Sharfaa Sedick Anthony 220041571
+ * //25.10.2022
  * */
 
 package za.ac.cput.domain;
@@ -23,13 +24,15 @@ public class Category implements Serializable {
     @NotNull
     private String categoryDescription;
 
-    private Category() {
-    }
-
     private Category(Builder builder) {
         this.categoryId = builder.categoryId;
         this.categoryName = builder.categoryName;
         this.categoryDescription = builder.categoryDescription;
+    }
+
+    // This was a private constructor - Needs to be Public!
+    public Category() {
+
     }
 
     public String getCategoryId() {return categoryId;}
@@ -78,4 +81,3 @@ public class Category implements Serializable {
         }
     }
 }
-

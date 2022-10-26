@@ -1,10 +1,6 @@
+//25.10.2022
 package za.ac.cput.controller;
-/*
- * Online-Shopping-System
- * Tshepang Molefe
- * 216217717
- * 10/04/2022
- */
+
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,9 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class ShoppingCartControllerTest
-
-{
+class  ShoppingCartControllerTest {
 
     @LocalServerPort
     private int port;
@@ -36,19 +30,19 @@ class ShoppingCartControllerTest
     private String baseUrl;
 
     @BeforeEach
-    void setUp()
-    {
+    void setUp() {
         assertNotNull(controller);
-        this.shoppingCart = ShoppingCartFactory.createShoppingCart("6421081", "56554",45651,"24/Aus/2022");
-        this.baseUrl = "http://localhost:" + this.port + "/schoolmanagement/ShoppingCart/";
+        this.shoppingCart = ShoppingCartFactory.createShoppingCart("10233133","3fd03erjd",10, "11/02/2022");
+        this.baseUrl = "http://localhost:" + this.port + "/online-shopping-system/shoppingcart/";
     }
+
     @Order(1)
     @Test
-    void save()
-    {
+    void save() {
         String url = baseUrl + "save";
         System.out.println(url);
         ResponseEntity<ShoppingCart> response = this.restTemplate
+                .withBasicAuth("admin-user", "65ff7492d30")
                 .postForEntity(url, this.shoppingCart, ShoppingCart.class);
         System.out.println(response);
         assertAll(
@@ -56,37 +50,43 @@ class ShoppingCartControllerTest
                 () -> assertNotNull(response.getBody())
         );
     }
+
     @Order(3)
     @Test
-    void delete()
-    {
+    void delete() {
         String url = baseUrl + "delete/" + this.shoppingCart.getCartId();
         System.out.println(url);
         this.restTemplate.delete(url);
     }
+
     @Order(2)
     @Test
-    void read()
-    {
+    void readId() {
         String url = baseUrl + "read/" + this.shoppingCart.getCartId();
         System.out.println(url);
-        ResponseEntity<ShoppingCart> response = this.restTemplate.getForEntity(url, ShoppingCart.class);
+        ResponseEntity<ShoppingCart> response = this.restTemplate
+                .withBasicAuth("admin-user", "65ff7492d30")
+                .getForEntity(url, ShoppingCart.class);
         System.out.println(response);
         assertAll(
                 ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                ()-> assertNotNull(response.getBody()));
+                ()-> assertNotNull(response.getBody())
+        );
     }
+
     @Order(4)
     @Test
-    void findAll()
-    {
+    void findAll() {
         String url = baseUrl + "all";
         System.out.println(url);
-        ResponseEntity<ShoppingCart[]> response =
-                this.restTemplate.getForEntity(url, ShoppingCart[].class);
+        ResponseEntity<ShoppingCart []> response =
+                this.restTemplate
+                        .withBasicAuth("admin-user", "65ff7492d30")
+                        .getForEntity(url, ShoppingCart[].class);
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                () -> assertEquals(0, response.getBody().length));
+                () -> assertEquals(1, response.getBody().length)
+        );
     }
 }

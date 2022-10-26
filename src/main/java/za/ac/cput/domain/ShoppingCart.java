@@ -1,40 +1,41 @@
-package za.ac.cput.domain;
 /*
  * Online-Shopping-System
  * Tshepang Molefe
  * 216217717
- * 10/04/2022
+ * //25.10.2022
  */
+package za.ac.cput.domain;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class ShoppingCart implements Serializable {
     @Id
-    @NotNull
     @Column(name = "cart_id")
     private String cartId;
-    @NotNull
-    @Embedded
-    private String productId;
-    private int quantity;
-    private String dateAdded;
-    protected ShoppingCart()
-    {}
 
-    // private constractor
+    @NotNull
+    private String productId;
+
+    @NotNull
+    private int quantity;
+
+    @NotNull
+    private String dateAdded;
+
+    protected ShoppingCart() {
+    }
+
     private ShoppingCart(Builder builder) {
         this.cartId = builder.cartId;
         this.productId = builder.productId;
         this.quantity = builder.quantity;
         this.dateAdded = builder.dateAdded;
-
-
     }
 
     public String getCartId() {
@@ -55,12 +56,20 @@ public class ShoppingCart implements Serializable {
 
     @Override
     public String toString() {
-        return "ShoppingCart{" +
-                "cartId=" + cartId +
-                ", productId=" + productId +
-                ", quantity=" + quantity +
-                ", dateAdded='" + dateAdded + '\'' +
-                '}';
+        return "ShoppingCart{" + "cartId='" + cartId + '\'' + ", productId='" + productId + '\'' + ", quantity=" + quantity + ", dateAdded='" + dateAdded + '\'' + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShoppingCart that = (ShoppingCart) o;
+        return quantity == that.quantity && Objects.equals(cartId, that.cartId) && Objects.equals(productId, that.productId) && Objects.equals(dateAdded, that.dateAdded);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cartId, productId, quantity, dateAdded);
     }
 
     public static class Builder {
@@ -94,13 +103,13 @@ public class ShoppingCart implements Serializable {
             this.productId = shoppingCart.productId;
             this.quantity = shoppingCart.quantity;
             this.dateAdded = shoppingCart.dateAdded;
+
             return this;
         }
 
-        public ShoppingCart build(){
+        public ShoppingCart build() {
             return new ShoppingCart(this);
         }
-
-
     }
+
 }

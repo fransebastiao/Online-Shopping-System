@@ -1,42 +1,35 @@
-package za.ac.cput.factory;
 /*
  Online-Shopping-System
  Entity for the OrderFactory
  Author: Edvalter da Costa Jamba (220446571)
- Date: 4 April 2022
- Changes Date:3 August 2022
+ //25.10.2022
 */
+package za.ac.cput.factory;
 
 import za.ac.cput.domain.Order;
 import za.ac.cput.domain.OrderDetails;
 import za.ac.cput.util.GenericHelper;
 
+public class OrderFactory {
 
-public class OrderFactory
-{
+    public static Order createOrder(String orderId, String orderDate, String orderStatus, String customerName, String deliveryAddress, int contactNumber, OrderDetails details){
+        GenericHelper.checkStringParam("orderId", orderId);
+        GenericHelper.checkStringParam("orderDate", orderDate);
+        GenericHelper.checkStringParam("orderStatus", orderStatus);
+        GenericHelper.checkStringParam("customerName", customerName);
+        GenericHelper.checkStringParam("deliveryAddress", deliveryAddress);
 
-    public static Order createOrder(String orderID, String orderDate, String orderStatus, String customerName
-            , String deliveryAddress, int contactNumber, OrderDetails details)
-    {
 
-        //Validation
-        if (GenericHelper.isNullorEmpty(orderID) || GenericHelper.isNullorEmpty(orderDate)||GenericHelper.isNullorEmpty(orderStatus)
-                || GenericHelper.isNullorEmpty(customerName)||GenericHelper.isNullorEmpty(deliveryAddress)
-                || GenericHelper.isNullorEmpty(String.valueOf(contactNumber)) )
-            return null;
-
-        //
         return new Order.Builder()
-                .setOrderID(orderID)
+                .setOrderId(orderId)
                 .setOrderDate(orderDate)
                 .setOrderStatus(orderStatus)
                 .setCustomerName(customerName)
                 .setDeliveryAddress(deliveryAddress)
-                .setContactNumber(String.valueOf(contactNumber))
+                .setContactNumber(contactNumber)
                 .setDetails(details)
                 .build();
 
+
     }
-
-
 }

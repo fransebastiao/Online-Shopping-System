@@ -12,4 +12,5 @@ import za.ac.cput.domain.Category;
 
 @Repository
 public interface ICategoryRepository extends JpaRepository<Category, String> {
+
 }

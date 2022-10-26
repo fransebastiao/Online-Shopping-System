@@ -1,3 +1,4 @@
+//25.10.2022
 package za.ac.cput.controller;
 
 import org.junit.jupiter.api.*;
@@ -7,12 +8,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.domain.Account;
 import za.ac.cput.domain.Category;
-import za.ac.cput.domain.Product;
-import za.ac.cput.domain.Region;
 import za.ac.cput.factory.CategoryFactory;
-import za.ac.cput.factory.ProductFactory;
 
 import java.util.Arrays;
 
@@ -35,7 +32,7 @@ class  CategoryControllerTest {
     @BeforeEach
     void setUp() {
         assertNotNull(controller);
-        this.category = CategoryFactory.createCategory("Tools","Construction items used to build");
+        this.category = CategoryFactory.createCategory("102","Tools","Construction items used to build");
         this.baseUrl = "http://localhost:" + this.port + "/online-shopping-system/category/";
     }
 
@@ -45,6 +42,7 @@ class  CategoryControllerTest {
         String url = baseUrl + "save";
         System.out.println(url);
         ResponseEntity<Category> response = this.restTemplate
+                .withBasicAuth("admin-user", "65ff7492d30")
                 .postForEntity(url, this.category, Category.class);
         System.out.println(response);
         assertAll(
@@ -66,7 +64,9 @@ class  CategoryControllerTest {
     void readId() {
         String url = baseUrl + "read/" + this.category.getCategoryId();
         System.out.println(url);
-        ResponseEntity<Category> response = this.restTemplate.getForEntity(url, Category.class);
+        ResponseEntity<Category> response = this.restTemplate
+                .withBasicAuth("admin-user", "65ff7492d30")
+                .getForEntity(url, Category.class);
         System.out.println(response);
         assertAll(
                 ()-> assertEquals(HttpStatus.OK, response.getStatusCode()),
@@ -80,11 +80,13 @@ class  CategoryControllerTest {
         String url = baseUrl + "all";
         System.out.println(url);
         ResponseEntity<Category []> response =
-                this.restTemplate.getForEntity(url, Category[].class);
+                this.restTemplate
+                        .withBasicAuth("admin-user", "65ff7492d30")
+                        .getForEntity(url, Category[].class);
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                () -> assertEquals(0, response.getBody().length)
+                () -> assertEquals(5, response.getBody().length)
         );
     }
 }

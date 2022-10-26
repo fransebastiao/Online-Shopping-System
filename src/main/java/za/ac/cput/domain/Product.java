@@ -2,6 +2,7 @@
  * Product.java
  * Entity for the Product
  * Author: Sharfaa Sedick Anthony 220041571
+ * //25.10.2022
  * */
 
 package za.ac.cput.domain;

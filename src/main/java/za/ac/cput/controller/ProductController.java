@@ -1,3 +1,8 @@
+/*
+ * ProductController.java
+ * Author: Sharfaa Sedick Anthony 220041571
+ * //25.10.2022
+ * */
 package za.ac.cput.controller;
 
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.domain.Product;
 import za.ac.cput.factory.ProductFactory;
 import za.ac.cput.service.ProductService;
+
 import java.util.Set;
 
 @RestController
@@ -28,7 +34,7 @@ public class ProductController {
         log.info("Save request: {}", product);
         Product validatedProduct;
         try {
-            validatedProduct = ProductFactory.createProduct(product.getProductName(),product.getProdDescription(), product.getProdPrice());
+            validatedProduct = ProductFactory.createProduct(product.getProductID(), product.getProductName(),product.getProdDescription(), product.getProdPrice());
         }catch(IllegalArgumentException e){
             log.info("Save request error: {}", e.getMessage());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);

@@ -3,7 +3,7 @@ package za.ac.cput.service.impl;
 Region Service test
 Author: Franciel Danilo de Carvalho Sebastiao
 Student Number: 219466912
-Date: 13/08/2022
+//25.10.2022
  */
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,28 +17,28 @@ import za.ac.cput.factory.AccountFactory;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
-class AccountServiceImplTest {
-    private static final Account account1 = AccountFactory.saveAccount("01/01/2020", "01/01/2025");
-    private static final Account account2 = AccountFactory.saveAccount("30/10/2015", "30/10/2035");
-    private static final Account account3 = AccountFactory.saveAccount("11/03/2022", "11/03/2023");
+public class AccountServiceImplTest {
+    private static final Account account1 = AccountFactory.createAccount("12345678","01/01/2020", "01/01/2025");
+    private static final Account account2 = AccountFactory.createAccount("87654321","30/10/2015", "30/10/2035");
+    private static final Account account3 = AccountFactory.createAccount("00334466","11/03/2022", "11/03/2023");
 
     @Autowired
     private AccountServiceImpl service;
 
     @Test
     void a_save() {
-        System.out.println("Saved accounts: ");
-        Account saved1 = service.save(account1);
-        assertNotNull(saved1);
-        System.out.println(saved1);
+        System.out.println("Created: ");
+        Account created1 = service.save(account1);
+        assertNotNull(created1);
+        System.out.println(created1);
 
-        Account saved2 = service.save(account2);
-        assertNotNull(saved2);
-        System.out.println(saved2);
+        Account created2 = service.save(account2);
+        assertNotNull(created2);
+        System.out.println(created2);
 
-        Account saved3 = service.save(account3);
-        assertNotNull(saved3);
-        System.out.println(saved3);
+        Account created3 = service.save(account3);
+        assertNotNull(created3);
+        System.out.println(created3);
     }
 
     @Test
@@ -49,15 +49,15 @@ class AccountServiceImplTest {
     }
 
     @Test
-    void d_delete() {
-        boolean success = service.delete(account1.getAccountId());
+    void f_delete() {
+        boolean success = service.delete(account3.getAccountId());
         assertTrue(success);
         System.out.println("Delete account: " + success);
     }
 
     @Test
-    void c_getALl() {
-        System.out.println("Show all accounts");
+    void d_getALl() {
+        System.out.println("Show all accounts: ");
         System.out.println(service.findAll());
     }
 }

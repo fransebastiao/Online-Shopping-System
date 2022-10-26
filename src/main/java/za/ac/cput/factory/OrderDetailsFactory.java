@@ -1,32 +1,26 @@
-package za.ac.cput.factory;
 /*
  Online-Shopping-System
  Entity for the OrderDetailsFactory
  Author: Edvalter da Costa Jamba (220446571)
- Date: 4 April 2022
- Changes Date:3 August 2022
+ //25.10.2022
 */
+package za.ac.cput.factory;
 
-import za.ac.cput.domain.Order;
 import za.ac.cput.domain.OrderDetails;
-import za.ac.cput.domain.Product;
 import za.ac.cput.util.GenericHelper;
 
+public class OrderDetailsFactory {
 
-public class OrderDetailsFactory
-{
+    public static OrderDetails createOrderDetails(int quantity, String unitCost, String subTotal){
+        GenericHelper.checkStringParam("unitCost", unitCost);
+        GenericHelper.checkStringParam("subTotal", subTotal);
 
-
-    public static OrderDetails createOrderDetails(int quantity, String unitCost, String subTotal) {
-        if (GenericHelper.isNullorEmpty(String.valueOf(quantity))|| GenericHelper.isNullorEmpty(unitCost)
-                || GenericHelper.isNullorEmpty(subTotal) )
-            return null;
-
-        //
         return new OrderDetails.Builder()
-                .setQuantity(String.valueOf(quantity))
-                .setUniCost(unitCost)
+                .setQuantity(quantity)
+                .setUnitCost(unitCost)
                 .setSubTotal(subTotal)
                 .build();
+
+
     }
 }

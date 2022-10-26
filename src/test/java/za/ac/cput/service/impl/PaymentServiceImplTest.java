@@ -1,3 +1,4 @@
+//25.10.2022
 package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.Test;
@@ -12,9 +13,9 @@ import za.ac.cput.factory.PaymentFactory;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest
-class PaymentServiceImplTest {
-    private static final Payment payment1 = PaymentFactory.CreatePayment("first payment", "11/08/2018", "13h45", "R45000", " repairs payment");
-    private static final Payment payment2 = PaymentFactory.CreatePayment(" second payment", " 22/10/1998", " 20hoo", " R30000", " school fees");
+public class PaymentServiceImplTest {
+    private static final Payment payment1 = PaymentFactory.createPayment("first payment", "11/08/2018", "13h45", "R45000", " repairs payment");
+    private static final Payment payment2 = PaymentFactory.createPayment(" second payment", " 22/10/1998", " 20hoo", " R30000", " school fees");
 
     @Autowired
     private PaymentServiceImpl service;
@@ -39,15 +40,15 @@ class PaymentServiceImplTest {
     }
 
     @Test
-    void c_findAll() {
-        System.out.println("Show all payments");
-        System.out.println(service.findAll());
-    }
-
-    @Test
-    void d_delete() {
+    void f_delete() {
         boolean success = service.delete(payment1.getPaymentId());
         assertTrue(success);
         System.out.println("Delete payment: " + success);
+    }
+
+    @Test
+    void d_findAll() {
+        System.out.println("Show all payments");
+        System.out.println(service.findAll());
     }
 }

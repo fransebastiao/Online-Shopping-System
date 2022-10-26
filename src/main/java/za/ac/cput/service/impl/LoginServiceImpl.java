@@ -1,12 +1,14 @@
-package za.ac.cput.service.impl;
 /*
 Online Shopping System
 Lihle Langa 217181147
+//25.10.2022
  */
+package za.ac.cput.service.impl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Login;
-import za.ac.cput.repository.LoginRepository;
+import za.ac.cput.repository.ILoginRepository;
 import za.ac.cput.service.LoginService;
 
 import java.util.Set;
@@ -14,14 +16,12 @@ import java.util.stream.Collectors;
 
 @Service
 public class LoginServiceImpl implements LoginService {
+    private final ILoginRepository repository;
 
     @Autowired
-    private final LoginRepository repository;
-
-    public LoginServiceImpl(LoginRepository repository) {
+    public LoginServiceImpl(ILoginRepository repository) {
         this.repository = repository;
     }
-
 
     @Override
     public Login save(Login login) {
